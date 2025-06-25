@@ -1,0 +1,246 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Main font for the entire site */
+@font-face {
+  font-family: "MicroExtendFLF-Bold";
+  src: url("/fonts/MicroExtendRLF-Bold.woff2") format("woff2");
+  font-weight: 700; /* Explicitly bold */
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fallback font, if needed for specific elements like longer paragraphs */
+@font-face {
+  font-family: "Satoshi";
+  src: url("/fonts/Satoshi-Variable.woff2") format("woff2");
+  font-weight: 300 900; /* Variable font, can choose weight */
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --foreground: 255, 255, 255;
+  --background: 0, 0, 0;
+  --font-primary: "MicroExtendFLF-Bold", "Satoshi", system-ui, sans-serif;
+  --font-secondary: "Satoshi", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: var(--font-primary); /* Use CSS variable for primary font */
+  font-weight: 700; /* Default to bold for the primary font */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.02em;
+}
+
+/* Utility class for primary font (MicroExtendFLF-Bold) */
+.font-micro {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  letter-spacing: -0.02em; /* Default for MicroExtend */
+}
+
+/* Utility class for secondary font (Satoshi), e.g., for paragraphs */
+.font-satoshi {
+  font-family: var(--font-secondary);
+  font-weight: 400; /* Normal weight for Satoshi */
+  letter-spacing: normal; /* Reset letter spacing */
+  line-height: 1.6; /* Better readability for paragraph text */
+}
+
+/* Apply Satoshi to common text elements if desired, or use .font-satoshi class */
+p,
+li,
+blockquote {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+/* Headings will use the primary font by default due to body inheritance */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.section-title,
+.hero-title {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  letter-spacing: -0.03em;
+  line-height: 0.95; /* Slightly adjusted for better appearance */
+}
+
+.section-title {
+  letter-spacing: -0.02em;
+}
+
+/* Clip path angular para botones */
+.clip-path-angular {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%);
+}
+
+/* Botones Angular */
+.angular-button {
+  position: relative;
+  padding: 1rem 2rem;
+  background: transparent;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+  font-family: var(--font-primary); /* Ensure buttons use primary font */
+  font-weight: 700;
+  display: inline-block;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%); /* Adjusted from 15px to 8px */
+  border: 2px solid white;
+  min-width: 150px;
+  text-align: center;
+}
+
+.angular-button span {
+  position: relative;
+  z-index: 2;
+}
+
+.angular-button-overlay {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.angular-button:hover {
+  color: black;
+  transform: translateY(-2px);
+}
+
+.angular-button:hover .angular-button-overlay {
+  left: 0;
+}
+
+.ghost-button {
+  border: 2px solid white;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: transparent;
+}
+
+.ghost-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: white;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.ghost-button:hover {
+  color: black;
+}
+
+.ghost-button:hover::before {
+  width: 100%;
+}
+
+.service-card {
+  background-color: #18181b;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 100%, 15px 100%);
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.section-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  body {
+    letter-spacing: -0.015em;
+  }
+  .angular-button {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.8rem;
+    min-width: 140px;
+  }
+
+  .service-card {
+    padding: 1.25rem;
+  }
+
+  .hero-title {
+    letter-spacing: -0.02em;
+  }
+
+  .clip-path-angular {
+    clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 100%, 4px 100%); /* Adjusted from 6px to 4px */
+  }
+}
+
+/* Reducir animaciones si se prefiere */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
