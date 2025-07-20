@@ -5,7 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { TranslationProvider } from "@/lib/i18n" // Import TranslationProvider
 
 export const metadata: Metadata = {
-  title: "BOX ARQUITECH | Architecture with Intention and Purpose",
+  title: "BOX ARCHITECTS | Architecture with Intention and Purpose",
   description:
     "We design spaces that breathe with you. Architecture in Costa Rica with soul, adapted to the environment and honoring history.",
     generator: 'v0.dev'

@@ -19,7 +19,7 @@ export default function SimpleLogoIntro() {
       >
         <Image
           src="/images/BOX LOGO BLANCO.png" // Using the new logo mark
-          alt="BOX ARQUITECH Logo Mark"
+          alt="BOX ARCHITECTS Logo Mark"
           fill
           className="object-contain"
           priority

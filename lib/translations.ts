@@ -5,7 +5,7 @@ export const translations = {
     "header.consulting": "Consulting",
     "header.reviews": "Reviews",
     "header.contact": "Contact",
-    "header.boxArquitech": "BOX ARQUITECH",
+    "header.boxArchitects": "BOX ARCHITECTS",
 
     // Hero
     "hero.title1": "We design spaces",
@@ -53,7 +53,7 @@ export const translations = {
     // Reseñas Section (Reviews)
     "reviews.title": "Reviews",
     "reviews.subtitle":
-      "Our clients' satisfaction is our greatest achievement. Learn about the experiences of those who have trusted BOX ARQUITECH.",
+      "Our clients' satisfaction is our greatest achievement. Learn about the experiences of those who have trusted BOX ARCHITECTS.",
     "reviews.noReviews": "We will soon share our clients' experiences.",
     "reviews.stats.projectsCompleted": "Projects Completed",
     "reviews.stats.yearsExperience": "Years of Experience",
@@ -104,7 +104,7 @@ export const translations = {
     "footer.terms": "Terms",
     "footer.privacyPolicy": "Privacy Policy",
     "footer.cookies": "Cookies",
-    "footer.copyright": "© 2025 BOX ARQUITECH Costa Rica. All rights reserved.",
+    "footer.copyright": "© 2025 BOX ARCHITECTS Costa Rica. All rights reserved.",
 
     // Services Section
     "services.title": "Services",
@@ -146,18 +146,18 @@ export const translations = {
     // Terms and Conditions Page
     "terms.title": "Terms and Conditions",
     "terms.paragraph1":
-      "Welcome to BOX ARQUITECH. By accessing or using our website, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you must not use our website.",
+      "Welcome to BOX ARCHITECTS. By accessing or using our website, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you must not use our website.",
     "terms.paragraph2":
       "The content provided on this website is for general informational purposes only. We reserve the right to modify or discontinue any aspect of the website at any time without prior notice. We are not liable for any inaccuracies or omissions in the information provided.",
     "terms.paragraph3":
-      "All intellectual property rights related to the content and design of this website belong to BOX ARQUITECH. Unauthorized use, reproduction, or distribution of any content is strictly prohibited.",
+      "All intellectual property rights related to the content and design of this website belong to BOX ARCHITECTS. Unauthorized use, reproduction, or distribution of any content is strictly prohibited.",
     "terms.paragraph4":
       "Your use of this website is at your sole risk. We do not guarantee that the website will be uninterrupted, error-free, or free of viruses or other harmful components. We shall not be liable for any damages arising from the use of this website.",
 
     // Privacy Policy Page
     "privacyPolicy.title": "Privacy Policy",
     "privacyPolicy.paragraph1":
-      "At BOX ARQUITECH, we are committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information when you visit our website or interact with our services.",
+      "At BOX ARCHITECTS, we are committed to protecting your privacy. This policy explains how we collect, use, and safeguard your personal information when you visit our website or interact with our services.",
     "privacyPolicy.paragraph2":
       "We collect personal information that you voluntarily provide to us, such as your name, email address, phone number, and project details when you fill out our contact form. We use this information solely to respond to your inquiries, provide consultation services, and improve our offerings.",
     "privacyPolicy.paragraph3":
@@ -171,7 +171,7 @@ export const translations = {
     "header.consulting": "Consultoría",
     "header.reviews": "Reseñas",
     "header.contact": "Contacto",
-    "header.boxArquitech": "BOX ARQUITECH",
+    "header.boxArchitects": "BOX ARCHITECTS",
 
     // Hero
     "hero.title1": "Diseñamos espacios",
@@ -198,7 +198,7 @@ export const translations = {
     // Nosotros Section (About Us)
     "aboutUs.missionTitle": "Nuestra Misión",
     "aboutUs.missionText":
-      "En BOX ARQUITECH, diseñamos espacios con intención, alma y propósito. Creemos que la arquitectura debe adaptarse a su entorno y honrar la historia de quienes la habitan. Cada uno de nuestros proyectos —ya sea una casa, un restaurante o un lodge turístico— nace del amor por lo que hacemos y una profunda conexión con la naturaleza.",
+      "En BOX ARCHITECTS, diseñamos espacios con intención, alma y propósito. Creemos que la arquitectura debe adaptarse a su entorno y honrar la historia de quienes la habitan. Cada uno de nuestros proyectos —ya sea una casa, un restaurante o un lodge turístico— nace del amor por lo que hacemos y una profunda conexión con la naturaleza.",
     "aboutUs.visionTitle": "Nuestra Visión",
     "aboutUs.visionText":
       "Buscamos transformar la forma en que la arquitectura se vive y se experimenta en Costa Rica. Diseñamos espacios auténticos que fluyen con el entorno, respetan el conocimiento constructivo ancestral y se integran con inteligencia y sensibilidad en cada lugar. Nuestro objetivo es crear arquitectura significativa para quienes aman lo que hacen.",
@@ -219,7 +219,7 @@ export const translations = {
     // Reseñas Section (Reviews)
     "reviews.title": "Reseñas",
     "reviews.subtitle":
-      "La satisfacción de nuestros clientes es nuestro mayor logro. Conoce las experiencias de quienes han confiado en BOX ARQUITECH.",
+      "La satisfacción de nuestros clientes es nuestro mayor logro. Conoce las experiencias de quienes han confiado en BOX ARCHITECTS.",
     "reviews.noReviews": "Pronto compartiremos las experiencias de nuestros clientes.",
     "reviews.stats.projectsCompleted": "Proyectos Completados",
     "reviews.stats.yearsExperience": "Años de Experiencia",
@@ -270,7 +270,7 @@ export const translations = {
     "footer.terms": "Términos",
     "footer.privacyPolicy": "Política de Privacidad",
     "footer.cookies": "Cookies",
-    "footer.copyright": "© 2025 BOX ARQUITECH Costa Rica. Todos los derechos reservados.",
+    "footer.copyright": "© 2025 BOX ARCHITECTS Costa Rica. Todos los derechos reservados.",
 
     // Services Section
     "services.title": "Servicios",
@@ -313,18 +313,18 @@ export const translations = {
     // Terms and Conditions Page
     "terms.title": "Términos y Condiciones",
     "terms.paragraph1":
-      "Bienvenido a BOX ARQUITECH. Al acceder o utilizar nuestro sitio web, usted acepta estar sujeto a estos Términos y Condiciones. Si no está de acuerdo con alguna parte de estos términos, no debe utilizar nuestro sitio web.",
+      "Bienvenido a BOX ARCHITECTS. Al acceder o utilizar nuestro sitio web, usted acepta estar sujeto a estos Términos y Condiciones. Si no está de acuerdo con alguna parte de estos términos, no debe utilizar nuestro sitio web.",
     "terms.paragraph2":
       "El contenido proporcionado en este sitio web es solo para fines informativos generales. Nos reservamos el derecho de modificar o descontinuar cualquier aspecto del sitio web en cualquier momento sin previo aviso. No somos responsables de ninguna inexactitud u omisión en la información proporcionada.",
     "terms.paragraph3":
-      "Todos los derechos de propiedad intelectual relacionados con el contenido y el diseño de este sitio web pertenecen a BOX ARQUITECH. El uso, la reproducción o la distribución no autorizados de cualquier contenido están estrictamente prohibidos.",
+      "Todos los derechos de propiedad intelectual relacionados con el contenido y el diseño de este sitio web pertenecen a BOX ARCHITECTS. El uso, la reproducción o la distribución no autorizados de cualquier contenido están estrictamente prohibidos.",
     "terms.paragraph4":
       "El uso de este sitio web es bajo su propio riesgo. No garantizamos que el sitio web sea ininterrumpido, libre de errores o libre de virus u otros componentes dañinos. No seremos responsables de ningún daño que surja del uso de este sitio web.",
 
     // Privacy Policy Page
     "privacyPolicy.title": "Política de Privacidad",
     "privacyPolicy.paragraph1":
-      "En BOX ARQUITECH, nos comprometemos a proteger su privacidad. Esta política explica cómo recopilamos, usamos y salvaguardamos su información personal cuando visita nuestro sitio web o interactúa con nuestros servicios.",
+      "En BOX ARCHITECTS, nos comprometemos a proteger su privacidad. Esta política explica cómo recopilamos, usamos y salvaguardamos su información personal cuando visita nuestro sitio web o interactúa con nuestros servicios.",
     "privacyPolicy.paragraph2":
       "Recopilamos información personal que usted nos proporciona voluntariamente, como su nombre, dirección de correo electrónico, número de teléfono y detalles del proyecto cuando completa nuestro formulario de contacto. Utilizamos esta información únicamente para responder a sus consultas, proporcionar servicios de consultoría y mejorar nuestras ofertas.",
     "privacyPolicy.paragraph3":

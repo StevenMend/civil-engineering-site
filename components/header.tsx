@@ -41,14 +41,14 @@ export default function Header() {
             <div className="relative w-10 h-10 md:w-12 md:h-12">
               <Image
                 src="/images/BOX LOGO BLANCO.png"
-                alt={t("header.boxArquitech")}
+                alt={t("header.boxArchitects")}
                 fill
                 className="object-contain"
                 priority
               />
             </div>
             <span className="text-sm md:text-base font-micro uppercase tracking-wider text-white">
-              {/* {t("header.boxArquitech")} */}
+              {/* {t("header.boxArchitects")} */}
             </span>
           </Link>
 

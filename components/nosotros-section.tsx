@@ -31,7 +31,7 @@ export default function NosotrosSection() {
       <motion.div className="absolute inset-0 z-0" style={{ y: imageY }}>
         <Image
           src="/images/nosotros-background.jpeg"
-          alt="Tropical architecture BOX ARQUITECH"
+          alt="Tropical architecture BOX ARCHITECTS"
           fill
           className="object-cover"
           quality={90}

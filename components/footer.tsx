@@ -29,12 +29,12 @@ export default function Footer() {
               <div className="relative w-10 h-10">
                 <Image
                   src="/images/BOX LOGO BLANCO.png"
-                  alt={t("header.boxArquitech")}
+                  alt={t("header.boxArchitects")}
                   fill
                   className="object-contain"
                 />
               </div>
-              <span className="text-lg font-bold font-micro tracking-wider text-white">{t("header.boxArquitech")}</span>
+              <span className="text-lg font-bold font-micro tracking-wider text-white">{t("header.boxArchitects")}</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md font-satoshi">{t("footer.description")}</p>
             <div className="flex space-x-4">
