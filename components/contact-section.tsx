@@ -210,7 +210,7 @@ export default function ContactSection() {
             className="w-full angular-button flex items-center justify-center disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <Send className="mr-2 w-4 h-4" />
-            {isLoading ? 'Enviando...' : t("contact.submitButton")}
+            {isLoading ? 'Enviando...' : t("")}
             <div className="angular-button-overlay" />
           </Button>
         </motion.form>

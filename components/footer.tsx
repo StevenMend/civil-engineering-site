@@ -38,7 +38,7 @@ export default function Footer() {
             </div>
             <p className="text-gray-400 mb-6 max-w-md font-satoshi">{t("footer.description")}</p>
             <div className="flex space-x-4">
-              <a href="https://www.instagram.com/braynergutierrez_/?igsh=dWN0enFnb2dmaTF6#" className="hover:text-gray-300 transition-colors" aria-label="Instagram">
+              <a href="https://www.instagram.com/boxarchitects_cr/?igsh=MWhkbWJkMWozcGFxaA%3D%3D#" className="hover:text-gray-300 transition-colors" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </a>
               <a href="#" className="hover:text-gray-300 transition-colors" aria-label="LinkedIn">
