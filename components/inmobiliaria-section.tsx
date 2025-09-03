@@ -79,17 +79,17 @@ export default function InmobiliariaSection() {
         >
           <div className="text-center p-6 border border-white/10 rounded-lg">
             <Home className="w-8 h-8 mx-auto mb-3 text-white" />
-            <h3 className="text-2xl font-bold text-white font-space">50+</h3>
+            <h3 className="text-2xl font-bold text-white font-space">10+</h3>
             <p className="text-gray-400 text-sm font-micro uppercase">{t("inmobiliaria.stats.properties")}</p>
           </div>
           <div className="text-center p-6 border border-white/10 rounded-lg">
             <Building2 className="w-8 h-8 mx-auto mb-3 text-white" />
-            <h3 className="text-2xl font-bold text-white font-space">8</h3>
+            <h3 className="text-2xl font-bold text-white font-space">7</h3>
             <p className="text-gray-400 text-sm font-micro uppercase">{t("inmobiliaria.stats.provinces")}</p>
           </div>
           <div className="text-center p-6 border border-white/10 rounded-lg">
             <MapPin className="w-8 h-8 mx-auto mb-3 text-white" />
-            <h3 className="text-2xl font-bold text-white font-space">25+</h3>
+            <h3 className="text-2xl font-bold text-white font-space">15+</h3>
             <p className="text-gray-400 text-sm font-micro uppercase">{t("inmobiliaria.stats.locations")}</p>
           </div>
         </motion.div>
