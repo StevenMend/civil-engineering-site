@@ -92,3 +92,16 @@ body {
     @apply bg-background text-foreground;
   }
 }
+/* Fix para Framer Motion scroll offset */
+.section-reveal {
+  position: relative;
+}
+
+/* Estilos para property cards */
+.property-card {
+  @apply bg-zinc-950 border border-white/10 rounded-lg overflow-hidden hover:border-white/20 transition-all duration-300;
+}
+
+.property-card:hover {
+  transform: translateY(-2px);
+}

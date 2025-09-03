@@ -9,6 +9,7 @@ import InteractiveProjectsSection from "@/components/interactive-projects-sectio
 import NosotrosSection from "@/components/nosotros-section"
 import ConsultoriaSection from "@/components/consultoria-section"
 import ReseñasSection from "@/components/reseñas-section"
+import InmobiliariaSection from "@/components/inmobiliaria-section"
 // Removed AprenderSection import
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
@@ -45,6 +46,7 @@ export default function Home() {
               <NosotrosSection />
               <ConsultoriaSection />
               <ReseñasSection />
+              <InmobiliariaSection />
               {/* Removed AprenderSection */}
               <ContactSection />
             </main>

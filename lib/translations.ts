@@ -164,6 +164,41 @@ export const translations = {
       "We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties. This does not include trusted third parties who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential.",
     "privacyPolicy.paragraph4":
       "We implement a variety of security measures to maintain the safety of your personal information. By using our site, you consent to our privacy policy. We reserve the right to update this policy at any time, and any changes will be posted on this page.",
+
+    // Inmobiliaria Section (Real Estate)
+    "inmobiliaria.title": "Real Estate",
+    "inmobiliaria.subtitle": "Discover unique properties designed with architectural vision in Costa Rica.",
+    "inmobiliaria.pageTitle": "Properties & Real Estate",
+    "inmobiliaria.pageSubtitle": "Find your next home or investment in Costa Rica with our curated selection of architecturally designed properties.",
+    "inmobiliaria.featuredProperties": "Featured Properties",
+    "inmobiliaria.viewAllProperties": "View All Properties",
+    "inmobiliaria.viewDetails": "View Details",
+    "inmobiliaria.stats.properties": "Properties Available",
+    "inmobiliaria.stats.provinces": "Provinces Covered",
+    "inmobiliaria.stats.locations": "Prime Locations",
+    "inmobiliaria.resultsFound": "{count} properties found",
+    "inmobiliaria.noResults": "No properties found",
+    "inmobiliaria.tryDifferentFilters": "Try adjusting your search filters to find what you're looking for.",
+    // Property Types
+    "inmobiliaria.propertyTypes.house": "House",
+    "inmobiliaria.propertyTypes.land": "Land",
+    "inmobiliaria.propertyTypes.apartment": "Apartment", 
+    "inmobiliaria.propertyTypes.commercial": "Commercial",
+    // Filters
+    "inmobiliaria.filters.title": "Filter Properties",
+    "inmobiliaria.filters.search": "Search",
+    "inmobiliaria.filters.searchPlaceholder": "Search by title or location...",
+    "inmobiliaria.filters.propertyType": "Property Type",
+    "inmobiliaria.filters.priceRange": "Price Range",
+    "inmobiliaria.filters.location": "Location",
+    "inmobiliaria.filters.all": "All Types",
+    "inmobiliaria.filters.allPrices": "All Prices",
+    "inmobiliaria.filters.allLocations": "All Locations",
+    // Contact CTA
+    "inmobiliaria.contactCTA.title": "Looking for something specific?",
+    "inmobiliaria.contactCTA.subtitle": "Let us know what you're looking for and we'll help you find the perfect property or design a custom solution.",
+    "inmobiliaria.contactCTA.button": "Contact Us",
+    "header.realEstate": "Real Estate",
   },
   es: {
     // Header
@@ -331,5 +366,40 @@ export const translations = {
       "No vendemos, comercializamos ni transferimos de ninguna otra forma su información de identificación personal a terceros. Esto no incluye a terceros de confianza que nos ayudan a operar nuestro sitio web, llevar a cabo nuestro negocio o servir a nuestros usuarios, siempre y cuando esas partes acuerden mantener esta información confidencial.",
     "privacyPolicy.paragraph4":
       "Implementamos una variedad de medidas de seguridad para mantener la seguridad de su información personal. Al usar nuestro sitio, usted acepta nuestra política de privacidad. Nos reservamos el derecho de actualizar esta política en cualquier momento, y cualquier cambio se publicará en esta página.",
+
+    // Inmobiliaria Section (Real Estate)
+    "inmobiliaria.title": "Inmobiliaria",
+    "inmobiliaria.subtitle": "Descubre propiedades únicas diseñadas con visión arquitectónica en Costa Rica.",
+    "inmobiliaria.pageTitle": "Propiedades e Inmobiliaria",
+    "inmobiliaria.pageSubtitle": "Encuentra tu próximo hogar o inversión en Costa Rica con nuestra selección curada de propiedades diseñadas arquitectónicamente.",
+    "inmobiliaria.featuredProperties": "Propiedades Destacadas",
+    "inmobiliaria.viewAllProperties": "Ver Todas las Propiedades",
+    "inmobiliaria.viewDetails": "Ver Detalles",
+    "inmobiliaria.stats.properties": "Propiedades Disponibles",
+    "inmobiliaria.stats.provinces": "Provincias Cubiertas",
+    "inmobiliaria.stats.locations": "Ubicaciones Premium",
+    "inmobiliaria.resultsFound": "{count} propiedades encontradas",
+    "inmobiliaria.noResults": "No se encontraron propiedades",
+    "inmobiliaria.tryDifferentFilters": "Intenta ajustar tus filtros de búsqueda para encontrar lo que buscas.",
+    // Tipos de Propiedad
+    "inmobiliaria.propertyTypes.house": "Casa",
+    "inmobiliaria.propertyTypes.land": "Terreno",
+    "inmobiliaria.propertyTypes.apartment": "Apartamento",
+    "inmobiliaria.propertyTypes.commercial": "Comercial",
+    // Filtros
+    "inmobiliaria.filters.title": "Filtrar Propiedades",
+    "inmobiliaria.filters.search": "Buscar",
+    "inmobiliaria.filters.searchPlaceholder": "Buscar por título o ubicación...",
+    "inmobiliaria.filters.propertyType": "Tipo de Propiedad",
+    "inmobiliaria.filters.priceRange": "Rango de Precio",
+    "inmobiliaria.filters.location": "Ubicación",
+    "inmobiliaria.filters.all": "Todos los Tipos",
+    "inmobiliaria.filters.allPrices": "Todos los Precios",
+    "inmobiliaria.filters.allLocations": "Todas las Ubicaciones",
+    // CTA de Contacto
+    "inmobiliaria.contactCTA.title": "¿Buscas algo específico?",
+    "inmobiliaria.contactCTA.subtitle": "Cuéntanos qué estás buscando y te ayudaremos a encontrar la propiedad perfecta o diseñar una solución personalizada.",
+    "inmobiliaria.contactCTA.button": "Contáctanos",
+    "header.realEstate": "Inmobiliaria",
   },
 }
