@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import SimpleLogoIntro from "@/components/simple-logo-intro"
@@ -14,7 +14,7 @@ import InmobiliariaSection from "@/components/inmobiliaria-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
 
-export default function Home() {
+function HomeContent() {
   const [loading, setLoading] = useState(true)
   const searchParams = useSearchParams()
   const shouldGoToContact = searchParams.get('contact') === 'true'
@@ -40,12 +40,7 @@ export default function Home() {
         if (contactSection) {
           contactSection.scrollIntoView({ behavior: 'smooth' })
           console.log('Scroll to contact executed successfully')
-          
-          // Limpiar URL manteniendo el #contact
-          setTimeout(() => {
-            const newUrl = window.location.origin + window.location.pathname + '#contact'
-            window.history.replaceState({}, '', newUrl)
-          }, 2000) // Más tiempo para asegurar que termine el scroll
+          // NO limpiar URL para evitar scroll hacia arriba
         }
       }, 300)
       return () => clearTimeout(timer)
@@ -81,5 +76,17 @@ export default function Home() {
         )}
       </AnimatePresence>
     </>
+  )
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-white">Loading...</div>
+      </div>
+    }>
+      <HomeContent />
+    </Suspense>
   )
 }
