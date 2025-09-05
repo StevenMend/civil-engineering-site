@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { useSearchParams } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import SimpleLogoIntro from "@/components/simple-logo-intro"
 import Header from "@/components/header"
@@ -10,20 +11,46 @@ import NosotrosSection from "@/components/nosotros-section"
 import ConsultoriaSection from "@/components/consultoria-section"
 import ReseñasSection from "@/components/reseñas-section"
 import InmobiliariaSection from "@/components/inmobiliaria-section"
-// Removed AprenderSection import
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
+  const searchParams = useSearchParams()
+  const shouldGoToContact = searchParams.get('contact') === 'true'
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    if (shouldGoToContact) {
+      // Si viene con ?contact=true, saltar la intro
       setLoading(false)
-    }, 2300)
+    } else {
+      // Comportamiento normal con intro
+      const timer = setTimeout(() => {
+        setLoading(false)
+      }, 2300)
+      return () => clearTimeout(timer)
+    }
+  }, [shouldGoToContact])
 
-    return () => clearTimeout(timer)
-  }, [])
+  useEffect(() => {
+    // Hacer scroll al formulario después de que cargue la página
+    if (!loading && shouldGoToContact) {
+      const timer = setTimeout(() => {
+        const contactSection = document.getElementById('contact')
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' })
+          console.log('Scroll to contact executed successfully')
+          
+          // Limpiar URL manteniendo el #contact
+          setTimeout(() => {
+            const newUrl = window.location.origin + window.location.pathname + '#contact'
+            window.history.replaceState({}, '', newUrl)
+          }, 2000) // Más tiempo para asegurar que termine el scroll
+        }
+      }, 300)
+      return () => clearTimeout(timer)
+    }
+  }, [loading, shouldGoToContact])
 
   return (
     <>
@@ -47,7 +74,6 @@ export default function Home() {
               <ConsultoriaSection />
               <ReseñasSection />
               <InmobiliariaSection />
-              {/* Removed AprenderSection */}
               <ContactSection />
             </main>
             <Footer />

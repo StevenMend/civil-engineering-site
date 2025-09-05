@@ -1,6 +1,6 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -8,14 +8,14 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Send } from "lucide-react"
 import { useTranslation } from "@/lib/i18n"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function ContactSection() {
   const { t } = useTranslation()
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
-    whatsapp: '',
+    whatsapp: '+',
     projectType: '',
     projectLocation: '',
     idea: ''
@@ -23,14 +23,30 @@ export default function ContactSection() {
   const [isLoading, setIsLoading] = useState(false)
   const [status, setStatus] = useState({ type: '', message: '' })
 
-  const handleInputChange = (field, value) => {
+  const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({
       ...prev,
       [field]: value
     }))
   }
 
-  const handleSubmit = async (e) => {
+  const handleWhatsAppChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let value = e.target.value
+    
+    // Asegurar que siempre empiece con +
+    if (!value.startsWith('+')) {
+      value = '+' + value.replace(/^\+/, '')
+    }
+    
+    // Si el usuario intenta borrar el +, mantenerlo
+    if (value === '') {
+      value = '+'
+    }
+    
+    handleInputChange('whatsapp', value)
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
     setStatus({ type: '', message: '' })
@@ -58,12 +74,11 @@ export default function ContactSection() {
           type: 'success',
           message: 'Mensaje enviado exitosamente. Te contactaremos pronto.'
         })
-        
-        // Limpiar formulario
+
         setFormData({
           fullName: '',
           email: '',
-          whatsapp: '',
+          whatsapp: '+',
           projectType: '',
           projectLocation: '',
           idea: ''
@@ -71,7 +86,6 @@ export default function ContactSection() {
       } else {
         throw new Error('Error en el envío')
       }
-
     } catch (error) {
       console.error('Error:', error)
       setStatus({
@@ -82,6 +96,15 @@ export default function ContactSection() {
       setIsLoading(false)
     }
   }
+
+  useEffect(() => {
+    if (status.message) {
+      const timer = setTimeout(() => {
+        setStatus({ type: "", message: "" })
+      }, 3000)
+      return () => clearTimeout(timer)
+    }
+  }, [status.message])
 
   return (
     <section id="contact" className="py-16 md:py-24 px-4 bg-zinc-950">
@@ -103,17 +126,24 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="space-y-6 bg-black p-8 md:p-9"
+          className="relative space-y-6 bg-black p-8 md:p-9"
         >
-          {status.message && (
-            <motion.div 
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className={`p-4 rounded-lg ${status.type === 'success' ? 'bg-green-900/50 text-green-200 border border-green-700' : 'bg-red-900/50 text-red-200 border border-red-700'}`}
-            >
-              {status.message}
-            </motion.div>
-          )}
+          {/* Toast discreto encima del formulario */}
+          <AnimatePresence>
+            {status.message && (
+              <motion.div
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.25 }}
+                className="absolute top-3 left-3 right-3 z-20 
+                  px-4 py-2 rounded-md text-xs font-medium text-center
+                  bg-zinc-700/60 text-zinc-300 border border-zinc-600/20 backdrop-blur-sm"
+              >
+                {status.message}
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           <div className="grid sm:grid-cols-2 gap-6">
             <div className="space-y-2">
@@ -150,8 +180,8 @@ export default function ContactSection() {
               name="whatsapp"
               type="tel"
               value={formData.whatsapp}
-              onChange={(e) => handleInputChange('whatsapp', e.target.value)}
-              placeholder={t("contact.whatsappPlaceholder")}
+              onChange={handleWhatsAppChange}
+              placeholder="+506 8888 8888"
               className="bg-zinc-900 border-zinc-700 focus:border-white"
             />
           </div>
