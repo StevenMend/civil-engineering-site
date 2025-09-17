@@ -199,6 +199,7 @@ export const translations = {
     "inmobiliaria.contactCTA.subtitle": "Let us know what you're looking for and we'll help you find the perfect property or design a custom solution.",
     "inmobiliaria.contactCTA.button": "Contact Us",
     "header.realEstate": "Real Estate",
+    "terrainMap.subtitle": "Descubre ubicaciones premium en Costa Rica",
   },
   es: {
     // Header
@@ -401,5 +402,6 @@ export const translations = {
     "inmobiliaria.contactCTA.button": "Contáctanos",
     "header.realEstate": "Inmobiliaria",
     "inmobiliaria.resultsFound": "{count} propiedades encontradas",
+    "terrainMap.title": "Explora Terrenos Disponibles",
   },
 }

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document id="1CvIyjKaQ-XtrhDjYVUfteHKu8fLARBoB">
+	<name>FINCA YADIRA</name>
+	<gx:CascadingStyle kml:id="__managed_style_2F21243B0A3A86088421">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff58eeff</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>80007cf5</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_10FC28CA283A86088421">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff58eeff</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>80007cf5</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_0AE335FC5F3A86088421">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_10FC28CA283A86088421</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_2F21243B0A3A86088421</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="0543A14F993A80BB9A94">
+		<name>Untitled polygon</name>
+		<LookAt>
+			<longitude>-85.8097140548287</longitude>
+			<latitude>10.2460913658528</latitude>
+			<altitude>32.50881653906544</altitude>
+			<heading>-11.56057195448771</heading>
+			<tilt>7.904694523261404</tilt>
+			<gx:fovy>30.00000068053908</gx:fovy>
+			<range>118.1662157503161</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_0AE335FC5F3A86088421</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						-85.80850923036705,10.24166626252567,0 -85.80869563071455,10.24276366413611,0 -85.80887616824194,10.2439559832139,0 -85.80892610077787,10.24424300005094,0 -85.80905649299807,10.24479066468552,0 -85.80915668282704,10.24525747048566,0 -85.80922446002668,10.2458416836334,0 -85.80927770074294,10.24618886601298,0 -85.80927712529116,10.24624877792519,0 -85.80932607478478,10.24623551742512,0 -85.80956050973273,10.24615908976471,0 -85.80931817260917,10.24425442076155,0 -85.80928010502841,10.2439848507644,0 -85.80919283809926,10.2433340664313,0 -85.80908397033218,10.24246514726847,0 -85.80894839767413,10.24162134042225,0 -85.80881553666737,10.24162853811266,0 -85.80850923036705,10.24166626252567,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</Document>
+</kml>

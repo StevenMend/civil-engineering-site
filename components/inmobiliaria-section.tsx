@@ -43,7 +43,7 @@ export default function InmobiliariaSection() {
         {/* Header */}
         <div className="text-center mb-12">
           <motion.h2
-            className="text-2xl md:text-4xl font-bold font-space mb-4"
+            className="text-2xl md:text-4xl font-bold font-space mb-4 text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.8)] drop-shadow-[0_0_10px_rgba(255,255,255,0.6)] drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}

@@ -13,6 +13,7 @@ import ReseñasSection from "@/components/reseñas-section"
 import InmobiliariaSection from "@/components/inmobiliaria-section"
 import ContactSection from "@/components/contact-section"
 import Footer from "@/components/footer"
+import InteractiveTerrainMap from "@/components/interactive-terrain-map"
 
 function HomeContent() {
   const [loading, setLoading] = useState(true)
@@ -69,6 +70,7 @@ function HomeContent() {
               <ConsultoriaSection />
               <ReseñasSection />
               <InmobiliariaSection />
+              <InteractiveTerrainMap />
               <ContactSection />
             </main>
             <Footer />
