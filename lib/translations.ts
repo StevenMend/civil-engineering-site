@@ -5,6 +5,7 @@ export const translations = {
     "header.consulting": "Consulting",
     "header.reviews": "Reviews",
     "header.contact": "Contact",
+    "header.realEstate": "Real Estate",
     "header.boxArchitects": "BOX ARCHITECTS",
 
     // Hero
@@ -72,6 +73,22 @@ export const translations = {
     "reviews.ctaTitle": "Ready for your next project?",
     "reviews.ctaSubtitle": "Join our satisfied clients and transform your architectural vision into reality.",
     "reviews.ctaButton": "START PROJECT",
+    
+    // Sistema de reseñas - Agregar nueva reseña
+    "reviews.addReview.button": "Add Review",
+    "reviews.addReview.title": "Share Your Experience",
+    "reviews.addReview.subtitle": "Tell us about your experience with BOX ARCHITECTS and help other clients.",
+    "reviews.addReview.rating": "Rating",
+    "reviews.addReview.name": "Your Name",
+    "reviews.addReview.namePlaceholder": "Enter your full name",
+    "reviews.addReview.project": "Project Name",
+    "reviews.addReview.projectPlaceholder": "e.g., Modern House, Commercial Building",
+    "reviews.addReview.location": "Location",
+    "reviews.addReview.locationPlaceholder": "e.g., San José, Costa Rica",
+    "reviews.addReview.review": "Your Review",
+    "reviews.addReview.reviewPlaceholder": "Share your experience with BOX ARCHITECTS...",
+    "reviews.addReview.submit": "Submit Review",
+    "reviews.addReview.cancel": "Cancel",
 
     // Contact Section
     "contact.title": " Schedule Your Free Consultation",
@@ -129,7 +146,7 @@ export const translations = {
     "founder.item2": "15+ Years in Costa Rica",
     "founder.item3": "Specialist in Tropical Architecture",
 
-    // Aprender Section (Learn) - keeping translations even if not rendered
+    // Aprender Section (Learn)
     "learn.title": "Insights & Creativity",
     "learn.subtitle":
       "Dive into the world of purposeful architecture. Here we share our knowledge, ideas, and the creative process that brings each project to life.",
@@ -179,11 +196,13 @@ export const translations = {
     "inmobiliaria.resultsFound": "{count} properties found",
     "inmobiliaria.noResults": "No properties found",
     "inmobiliaria.tryDifferentFilters": "Try adjusting your search filters to find what you're looking for.",
+    
     // Property Types
     "inmobiliaria.propertyTypes.house": "House",
     "inmobiliaria.propertyTypes.land": "Land",
     "inmobiliaria.propertyTypes.apartment": "Apartment", 
     "inmobiliaria.propertyTypes.commercial": "Commercial",
+    
     // Filters
     "inmobiliaria.filters.title": "Filter Properties",
     "inmobiliaria.filters.search": "Search",
@@ -194,19 +213,134 @@ export const translations = {
     "inmobiliaria.filters.all": "All Types",
     "inmobiliaria.filters.allPrices": "All Prices",
     "inmobiliaria.filters.allLocations": "All Locations",
+    
     // Contact CTA
     "inmobiliaria.contactCTA.title": "Looking for something specific?",
     "inmobiliaria.contactCTA.subtitle": "Let us know what you're looking for and we'll help you find the perfect property or design a custom solution.",
     "inmobiliaria.contactCTA.button": "Contact Us",
-    "header.realEstate": "Real Estate",
-    "terrainMap.subtitle": "Descubre ubicaciones premium en Costa Rica",
+
+    // Terrain Map Section
+    "terrainMap.title": "Explore Premium Terrains",
+    "terrainMap.subtitle": "Each property legally verified with National Registry data and complete investment analysis.",
+    "terrainMap.stats.verifiedTitles": "Verified Titles",
+    "terrainMap.stats.provinces": "Provinces", 
+    "terrainMap.stats.premiumLocations": "Premium Locations",
+    "terrainMap.legend.cleanTitle": "Clean Title",
+    "terrainMap.legend.inProcess": "In Process",
+    "terrainMap.legend.requiresReview": "Requires Review",
+    "terrainMap.loading": "Loading map...",
+    "terrainMap.error": "Error loading map",
+
+    // View Modes
+    "terrainMap.viewModes.satellite": "Satellite",
+    "terrainMap.viewModes.terrain": "Terrain", 
+    "terrainMap.viewModes.streets": "Streets",
+    "terrainMap.controls.resetView": "Reset View",
+
+    // Common Status
+    "terrains.common.available": "Available",
+    "terrains.common.inProcess": "In process",
+
+    // Terrains Data
+    "terrains.vistaAlMar.title": "Ocean View Terrain",
+    "terrains.vistaAlMar.price": "$180,000 USD",
+    "terrains.vistaAlMar.location": "Tamarindo, Guanacaste",
+    "terrains.vistaAlMar.area": "2,500 m²",
+    "terrains.vistaAlMar.status": "VERIFYING",
+    "terrains.vistaAlMar.amenities.security": "Safe area",
+    "terrains.vistaAlMar.amenities.beachAccess": "5 min to beach",
+    "terrains.vistaAlMar.amenities.utilities": "Services available",
+    "terrains.vistaAlMar.amenities.infrastructure": "Paved roads",
+    "terrains.vistaAlMar.investmentData.potential": "High",
+    "terrains.vistaAlMar.investmentData.zoning": "Residential",
+    "terrains.vistaAlMar.investmentData.access": "Public road",
+
+    "terrains.montaña.title": "Mountain Lot",
+    "terrains.montaña.price": "$95,000 USD",
+    "terrains.montaña.location": "Monteverde, Puntarenas", 
+    "terrains.montaña.area": "1,800 m²",
+    "terrains.montaña.status": "VERIFYING",
+    "terrains.montaña.amenities.security": "Private community",
+    "terrains.montaña.amenities.beachAccess": "Panoramic view",
+    "terrains.montaña.amenities.utilities": "Electricity available",
+    "terrains.montaña.amenities.infrastructure": "4x4 access",
+    "terrains.montaña.investmentData.potential": "Medium",
+    "terrains.montaña.investmentData.zoning": "Residential",
+    "terrains.montaña.investmentData.access": "Secondary road",
+
+    "terrains.comercial.title": "Commercial Terrain",
+    "terrains.comercial.price": "$280,000 USD",
+    "terrains.comercial.location": "Liberia, Guanacaste",
+    "terrains.comercial.area": "3,200 m²", 
+    "terrains.comercial.status": "VERIFYING",
+    "terrains.comercial.amenities.security": "Active commercial area",
+    "terrains.comercial.amenities.beachAccess": "20 min to airport",
+    "terrains.comercial.amenities.utilities": "Complete services",
+    "terrains.comercial.amenities.infrastructure": "Highway front",
+    "terrains.comercial.investmentData.potential": "Very High",
+    "terrains.comercial.investmentData.zoning": "Commercial",
+    "terrains.comercial.investmentData.access": "Main road",
+
+    "terrains.nahua.title": "Private Lot – Nahua",
+    "terrains.nahua.price": "$450,000 USD",
+    "terrains.nahua.location": "Sababa Grande, Guanacaste",
+    "terrains.nahua.area": "3,305 m²",
+    "terrains.nahua.status": "VERIFYING",
+    "terrains.nahua.amenities.security": "Strategic area",
+    "terrains.nahua.amenities.beachAccess": "5 beaches 1 hour away",
+    "terrains.nahua.amenities.utilities": "6 km from Nicoya, 12 km Santa Cruz",
+    "terrains.nahua.amenities.infrastructure": "Quiet rural area",
+    "terrains.nahua.investmentData.potential": "High",
+    "terrains.nahua.investmentData.zoning": "Residential",
+    "terrains.nahua.investmentData.access": "Rural road",
+
+    "terrains.yadira.title": "FINCA YADIRA - Box Reserve",
+    "terrains.yadira.price": "Consult price",
+    "terrains.yadira.location": "Santa Cruz, Guanacaste",
+    "terrains.yadira.area": "20,885 m²",
+    "terrains.yadira.status": "REGISTERED", 
+    "terrains.yadira.amenities.security": "Quiet residential area",
+    "terrains.yadira.amenities.beachAccess": "15 min to beach",
+    "terrains.yadira.amenities.utilities": "Water, electricity available",
+    "terrains.yadira.amenities.infrastructure": "Paved access",
+    "terrains.yadira.investmentData.potential": "High",
+    "terrains.yadira.investmentData.zoning": "Residential/Commercial",
+    "terrains.yadira.investmentData.access": "Direct public access",
+
+    // Modal Content
+    "terrainModal.areaM2": "Area in m²",
+    "terrainModal.areaFt2": "Area in ft²",
+    "terrainModal.price": "Price",
+    "terrainModal.status": "Status",
+    "terrainModal.readyToBuild": "Ready to build",
+    "terrainModal.premiumAmenities": "Premium Amenities",
+    "terrainModal.registryInfo": "Registry Information",
+    "terrainModal.fincaNumber": "Finca Number",
+    "terrainModal.province": "Province",
+    "terrainModal.currentOwner": "Current Owner",
+    "terrainModal.inscriptionDate": "Inscription Date",
+    "terrainModal.legalStatus": "Legal Status",
+    "terrainModal.investmentAnalysis": "Investment Analysis",
+    "terrainModal.potential": "Potential",
+    "terrainModal.zoning": "Zoning",
+    "terrainModal.access": "Access",
+    "terrainModal.boxGuarantee": "Box Architects Guarantee",
+    "terrainModal.guarantee1": "Complete legal study",
+    "terrainModal.guarantee2": "Digital signature from your country",
+    "terrainModal.guarantee3": "Online platform project tracking",
+    "terrainModal.guarantee4": "Personal concierge (from airport arrival)",
+    "terrainModal.requestPDF": "Request Personalized PDF Proposal",
+    "terrainModal.whatsappConcierge": "WhatsApp Concierge",
+    "terrainModal.securePurchase": "🖊️ Secure Purchase"
   },
+
   es: {
     // Header
     "header.aboutUs": "Nosotros",
     "header.consulting": "Consultoría",
     "header.reviews": "Reseñas",
     "header.contact": "Contacto",
+    "header.realEstate": "Inmobiliaria",
     "header.boxArchitects": "BOX ARCHITECTS",
 
     // Hero
@@ -274,6 +408,22 @@ export const translations = {
     "reviews.ctaTitle": "¿Listo para tu próximo proyecto?",
     "reviews.ctaSubtitle": "Únete a nuestros clientes satisfechos y transforma tu visión arquitectónica en realidad.",
     "reviews.ctaButton": "INICIAR PROYECTO",
+    
+    // Sistema de reseñas - Agregar nueva reseña
+    "reviews.addReview.button": "Dejar Reseña",
+    "reviews.addReview.title": "Comparte tu Experiencia",
+    "reviews.addReview.subtitle": "Cuéntanos sobre tu experiencia con BOX ARCHITECTS y ayuda a otros clientes.",
+    "reviews.addReview.rating": "Calificación",
+    "reviews.addReview.name": "Tu Nombre",
+    "reviews.addReview.namePlaceholder": "Ingresa tu nombre completo",
+    "reviews.addReview.project": "Nombre del Proyecto",
+    "reviews.addReview.projectPlaceholder": "ej: Casa Moderna, Edificio Comercial",
+    "reviews.addReview.location": "Ubicación",
+    "reviews.addReview.locationPlaceholder": "ej: San José, Costa Rica",
+    "reviews.addReview.review": "Tu Reseña",
+    "reviews.addReview.reviewPlaceholder": "Comparte tu experiencia con BOX ARCHITECTS...",
+    "reviews.addReview.submit": "Enviar Reseña",
+    "reviews.addReview.cancel": "Cancelar",
 
     // Contact Section
     "contact.title": " Agenda tu Consulta Gratuita",
@@ -331,7 +481,7 @@ export const translations = {
     "founder.item2": "15+ Años en Costa Rica",
     "founder.item3": "Especialista en Arquitectura Tropical",
 
-    // Aprender Section (Learn) - keeping translations even if not rendered
+    // Aprender Section (Learn)
     "learn.title": "Insights y Creatividad",
     "learn.subtitle":
       "Sumérgete en el mundo de la arquitectura con propósito. Aquí compartimos nuestro conocimiento, ideas y el proceso creativo que da vida a cada proyecto.",
@@ -379,13 +529,16 @@ export const translations = {
     "inmobiliaria.stats.properties": "Propiedades Disponibles",
     "inmobiliaria.stats.provinces": "Provincias Cubiertas",
     "inmobiliaria.stats.locations": "Ubicaciones Premium",
+    "inmobiliaria.resultsFound": "{count} propiedades encontradas",
     "inmobiliaria.noResults": "No se encontraron propiedades",
     "inmobiliaria.tryDifferentFilters": "Intenta ajustar tus filtros de búsqueda para encontrar lo que buscas.",
+    
     // Tipos de Propiedad
     "inmobiliaria.propertyTypes.house": "Casa",
     "inmobiliaria.propertyTypes.land": "Terreno",
     "inmobiliaria.propertyTypes.apartment": "Apartamento",
     "inmobiliaria.propertyTypes.commercial": "Comercial",
+    
     // Filtros
     "inmobiliaria.filters.title": "Filtrar Propiedades",
     "inmobiliaria.filters.search": "Buscar",
@@ -396,12 +549,124 @@ export const translations = {
     "inmobiliaria.filters.all": "Todos los Tipos",
     "inmobiliaria.filters.allPrices": "Todos los Precios",
     "inmobiliaria.filters.allLocations": "Todas las Ubicaciones",
+    
     // CTA de Contacto
     "inmobiliaria.contactCTA.title": "¿Buscas algo específico?",
     "inmobiliaria.contactCTA.subtitle": "Cuéntanos qué estás buscando y te ayudaremos a encontrar la propiedad perfecta o diseñar una solución personalizada.",
     "inmobiliaria.contactCTA.button": "Contáctanos",
-    "header.realEstate": "Inmobiliaria",
-    "inmobiliaria.resultsFound": "{count} propiedades encontradas",
-    "terrainMap.title": "Explora Terrenos Disponibles",
-  },
+
+    // Terrain Map Section  
+    "terrainMap.title": "Explora Terrenos Premium",
+    "terrainMap.subtitle": "Cada propiedad verificada legalmente con datos del Registro Nacional y análisis completo de inversión.",
+    "terrainMap.stats.verifiedTitles": "Títulos Verificados",
+    "terrainMap.stats.provinces": "Provincias",
+    "terrainMap.stats.premiumLocations": "Ubicaciones Premium", 
+    "terrainMap.legend.cleanTitle": "Título Limpio",
+    "terrainMap.legend.inProcess": "En Proceso",
+    "terrainMap.legend.requiresReview": "Requiere Revisión",
+    "terrainMap.loading": "Cargando mapa...",
+    "terrainMap.error": "Error cargando el mapa",
+
+    // View Modes
+    "terrainMap.viewModes.satellite": "Satélite",
+    "terrainMap.viewModes.terrain": "Relieve",
+    "terrainMap.viewModes.streets": "Calles",
+    "terrainMap.controls.resetView": "Reset Vista",
+
+    // Common Status
+    "terrains.common.available": "Disponible",
+    "terrains.common.inProcess": "En proceso",
+
+    // Terrains Data
+    "terrains.vistaAlMar.title": "Terreno Vista al Mar",
+    "terrains.vistaAlMar.price": "$180,000 USD",
+    "terrains.vistaAlMar.location": "Tamarindo, Guanacaste",
+    "terrains.vistaAlMar.area": "2,500 m²",
+    "terrains.vistaAlMar.status": "VERIFICANDO",
+    "terrains.vistaAlMar.amenities.security": "Zona segura",
+    "terrains.vistaAlMar.amenities.beachAccess": "5 min a playa",
+    "terrains.vistaAlMar.amenities.utilities": "Servicios disponibles",
+    "terrains.vistaAlMar.amenities.infrastructure": "Vías pavimentadas",
+    "terrains.vistaAlMar.investmentData.potential": "Alto",
+    "terrains.vistaAlMar.investmentData.zoning": "Residencial",
+    "terrains.vistaAlMar.investmentData.access": "Vía pública",
+
+    "terrains.montaña.title": "Lote Montaña", 
+    "terrains.montaña.price": "$95,000 USD",
+    "terrains.montaña.location": "Monteverde, Puntarenas",
+    "terrains.montaña.area": "1,800 m²",
+    "terrains.montaña.status": "VERIFICANDO",
+    "terrains.montaña.amenities.security": "Comunidad privada",
+    "terrains.montaña.amenities.beachAccess": "Vista panorámica",
+    "terrains.montaña.amenities.utilities": "Electricidad disponible",
+    "terrains.montaña.amenities.infrastructure": "Acceso 4x4",
+    "terrains.montaña.investmentData.potential": "Medio",
+    "terrains.montaña.investmentData.zoning": "Residencial",
+    "terrains.montaña.investmentData.access": "Vía secundaria",
+
+    "terrains.comercial.title": "Terreno Comercial",
+    "terrains.comercial.price": "$280,000 USD", 
+    "terrains.comercial.location": "Liberia, Guanacaste",
+    "terrains.comercial.area": "3,200 m²",
+    "terrains.comercial.status": "VERIFICANDO",
+    "terrains.comercial.amenities.security": "Zona comercial activa",
+    "terrains.comercial.amenities.beachAccess": "20 min al aeropuerto",
+    "terrains.comercial.amenities.utilities": "Servicios completos",
+    "terrains.comercial.amenities.infrastructure": "Frente a carretera",
+    "terrains.comercial.investmentData.potential": "Muy Alto",
+    "terrains.comercial.investmentData.zoning": "Comercial",
+    "terrains.comercial.investmentData.access": "Vía principal",
+
+    "terrains.nahua.title": "Lote Privado – Nahua",
+    "terrains.nahua.price": "$450,000 USD",
+    "terrains.nahua.location": "Sababa Grande, Guanacaste",
+    "terrains.nahua.area": "3,305 m²",
+    "terrains.nahua.status": "VERIFICANDO",
+    "terrains.nahua.amenities.security": "Zona estratégica",
+    "terrains.nahua.amenities.beachAccess": "5 playas a 1 hora",
+    "terrains.nahua.amenities.utilities": "6 km de Nicoya, 12 km Santa Cruz",
+    "terrains.nahua.amenities.infrastructure": "Zona rural tranquila",
+    "terrains.nahua.investmentData.potential": "Alto",
+    "terrains.nahua.investmentData.zoning": "Residencial",
+    "terrains.nahua.investmentData.access": "Vía rural",
+
+    "terrains.yadira.title": "FINCA YADIRA - Reserva Box",
+    "terrains.yadira.price": "Consultar precio",
+    "terrains.yadira.location": "Santa Cruz, Guanacaste",
+    "terrains.yadira.area": "20,885 m²", 
+    "terrains.yadira.status": "INSCRITO",
+    "terrains.yadira.amenities.security": "Zona residencial tranquila",
+    "terrains.yadira.amenities.beachAccess": "15 min a playa",
+    "terrains.yadira.amenities.utilities": "Agua, electricidad disponible",
+    "terrains.yadira.amenities.infrastructure": "Acceso pavimentado",
+    "terrains.yadira.investmentData.potential": "Alto",
+    "terrains.yadira.investmentData.zoning": "Residencial/Comercial",
+    "terrains.yadira.investmentData.access": "Vía pública directa",
+
+    // Modal Content
+    "terrainModal.areaM2": "Área en m²",
+    "terrainModal.areaFt2": "Área en pies²",
+    "terrainModal.price": "Precio",
+    "terrainModal.status": "Estado",
+    "terrainModal.readyToBuild": "Listo para construir",
+    "terrainModal.premiumAmenities": "Amenidades Premium",
+    "terrainModal.registryInfo": "Información Registral",
+    "terrainModal.fincaNumber": "Número de Finca", 
+    "terrainModal.province": "Provincia",
+    "terrainModal.currentOwner": "Propietario Actual",
+    "terrainModal.inscriptionDate": "Fecha Inscripción",
+    "terrainModal.legalStatus": "Estado Legal",
+    "terrainModal.investmentAnalysis": "Análisis de Inversión",
+    "terrainModal.potential": "Potencial",
+    "terrainModal.zoning": "Zonificación",
+    "terrainModal.access": "Acceso",
+    "terrainModal.boxGuarantee": "Garantía Box Architects",
+    "terrainModal.guarantee1": "Estudio legal completo",
+    "terrainModal.guarantee2": "Firma digital desde tu país",
+    "terrainModal.guarantee3": "Seguimiento de obra en plataforma online",
+    "terrainModal.guarantee4": "Concierge personal (desde tu llegada al aeropuerto)",
+    "terrainModal.requestPDF": "Solicitar Propuesta Personalizada PDF",
+    "terrainModal.whatsappConcierge": "WhatsApp Concierge",
+    "terrainModal.securePurchase": "🖊️ Compra Segura"
+  }
 }

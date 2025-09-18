@@ -2,6 +2,81 @@
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document id="1vG5QXGCYyNqbAVmazRuRE_Ysps1znm4E">
 	<name>LOTE NANGU</name>
-	<visibility>0</visibility>
+	<gx:CascadingStyle kml:id="__managed_style_28F5F90D853A8E27B030">
+		<Style>
+			<IconStyle>
+				<scale>1.2</scale>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff6abb66</color>
+				<width>6</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<gx:CascadingStyle kml:id="__managed_style_1890FD7AEC3A8E27B030">
+		<Style>
+			<IconStyle>
+				<Icon>
+					<href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+				</Icon>
+				<hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+			</IconStyle>
+			<LabelStyle>
+			</LabelStyle>
+			<LineStyle>
+				<color>ff6abb66</color>
+				<width>4</width>
+			</LineStyle>
+			<PolyStyle>
+				<color>40ffffff</color>
+			</PolyStyle>
+			<BalloonStyle>
+			</BalloonStyle>
+		</Style>
+	</gx:CascadingStyle>
+	<StyleMap id="__managed_style_00E39192B53A8E27B030">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#__managed_style_1890FD7AEC3A8E27B030</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#__managed_style_28F5F90D853A8E27B030</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark id="02D5F165763A8E279F44">
+		<name>Untitled polygon</name>
+		<LookAt>
+			<longitude>-85.48404308452542</longitude>
+			<latitude>10.18823142621869</latitude>
+			<altitude>172.1010769187105</altitude>
+			<heading>0</heading>
+			<tilt>0</tilt>
+			<gx:fovy>35</gx:fovy>
+			<range>349.195102610247</range>
+			<altitudeMode>absolute</altitudeMode>
+		</LookAt>
+		<styleUrl>#__managed_style_00E39192B53A8E27B030</styleUrl>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>
+						-85.48364138223889,10.18853778755592,0 -85.48379575335082,10.18840043260947,0 -85.48391442752035,10.1883099628453,0 -85.483993758708,10.18835001032831,0 -85.48408519199698,10.18854263164778,0 -85.48465345969962,10.18829737880154,0 -85.48437379269657,10.18762865740657,0 -85.48425685558972,10.1877026494401,0 -85.48419558185299,10.18774405653818,0 -85.48413409703647,10.18778835721122,0 -85.48403769810834,10.18784953309344,0 -85.48393624839156,10.18792664126273,0 -85.48386621064941,10.18798467183115,0 -85.48381156027217,10.18805078657644,0 -85.48373846467294,10.18817254887971,0 -85.48366262229905,10.18829717908861,0 -85.48363495878812,10.18841842031046,0 -85.48364138223889,10.18853778755592,0 
+					</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
 </Document>
 </kml>

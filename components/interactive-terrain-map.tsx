@@ -1,19 +1,17 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Loader } from "@googlemaps/js-api-loader"
 import { 
   MapPin, 
-  DollarSign, 
-  ZoomIn, 
-  ZoomOut, 
   Shield,
   TrendingUp,
   X,
   FileText
 } from "lucide-react"
 import { useTranslation } from "@/lib/i18n"
+import MapContainer from "./map/MapContainer"
 
 export default function InteractiveTerrainMap() {
   const { t } = useTranslation()
@@ -22,144 +20,188 @@ export default function InteractiveTerrainMap() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [selectedTerrain, setSelectedTerrain] = useState<any>(null)
-  const [activeLayers, setActiveLayers] = useState({
-    legal: true,
-    services: false,
-    investment: false
-  })
 
-  // Enhanced terrain data with premium metadata
-  const terrains = [
+  // Enhanced terrain data using translations
+  const terrains = useMemo(() => [
     {
       id: 1,
-      title: "Terreno Vista al Mar",
-      price: "$180,000 USD",
-      location: "Tamarindo, Guanacaste",
-      area: "2,500 m²",
+      title: t('terrains.vistaAlMar.title'),
+      price: t('terrains.vistaAlMar.price'),
+      location: t('terrains.vistaAlMar.location'),
+      area: t('terrains.vistaAlMar.area'),
       coordinates: { lat: 10.2989, lng: -85.8377 },
       registryData: {
         fincaNumber: "N/A",
         province: "Guanacaste",
         owner: "Disponible",
-        status: "VERIFICANDO",
+        status: t('terrains.vistaAlMar.status'),
         inscriptionDate: "En proceso",
         legalStatus: "pending"
       },
       investmentData: {
-        potential: "Alto",
-        zoning: "Residencial",
-        access: "Vía pública"
+        potential: t('terrains.vistaAlMar.investmentData.potential'),
+        zoning: t('terrains.vistaAlMar.investmentData.zoning'),
+        access: t('terrains.vistaAlMar.investmentData.access')
       },
       amenities: {
-        security: "Zona segura",
-        beachAccess: "5 min a playa",
-        utilities: "Servicios disponibles",
-        infrastructure: "Vías pavimentadas"
+        security: t('terrains.vistaAlMar.amenities.security'),
+        beachAccess: t('terrains.vistaAlMar.amenities.beachAccess'),
+        utilities: t('terrains.vistaAlMar.amenities.utilities'),
+        infrastructure: t('terrains.vistaAlMar.amenities.infrastructure')
       },
       boxGuarantee: [
-        "Estudio legal completo",
-        "Firma digital desde tu país", 
-        "Seguimiento de obra en plataforma online",
-        "Concierge personal (desde tu llegada al aeropuerto)"
+        t('terrainModal.guarantee1'),
+        t('terrainModal.guarantee2'), 
+        t('terrainModal.guarantee3')
       ]
     },
     {
       id: 2,
-      title: "Lote Montaña",
-      price: "$95,000 USD", 
-      location: "Monteverde, Puntarenas",
-      area: "1,800 m²",
+      title: t('terrains.montaña.title'),
+      price: t('terrains.montaña.price'), 
+      location: t('terrains.montaña.location'),
+      area: t('terrains.montaña.area'),
       coordinates: { lat: 10.3181, lng: -84.8066 },
       registryData: {
         fincaNumber: "N/A",
         province: "Puntarenas",
         owner: "Disponible",
-        status: "VERIFICANDO",
+        status: t('terrains.montaña.status'),
         inscriptionDate: "En proceso",
         legalStatus: "pending"
       },
       investmentData: {
-        potential: "Medio",
-        zoning: "Residencial",
-        access: "Vía secundaria"
+        potential: t('terrains.montaña.investmentData.potential'),
+        zoning: t('terrains.montaña.investmentData.zoning'),
+        access: t('terrains.montaña.investmentData.access')
       },
       amenities: {
-        security: "Comunidad privada",
-        beachAccess: "Vista panorámica",
-        utilities: "Electricidad disponible",
-        infrastructure: "Acceso 4x4"
+        security: t('terrains.montaña.amenities.security'),
+        beachAccess: t('terrains.montaña.amenities.beachAccess'),
+        utilities: t('terrains.montaña.amenities.utilities'),
+        infrastructure: t('terrains.montaña.amenities.infrastructure')
       },
       boxGuarantee: [
-        "Estudio legal completo",
-        "Firma digital desde tu país", 
-        "Seguimiento de obra en plataforma online",
-        "Concierge personal (desde tu llegada al aeropuerto)"
+        t('terrainModal.guarantee1'),
+        t('terrainModal.guarantee2'), 
+        t('terrainModal.guarantee3')
       ]
     },
     {
       id: 3,
-      title: "Terreno Comercial",
-      price: "$280,000 USD",
-      location: "Liberia, Guanacaste", 
-      area: "3,200 m²",
+      title: t('terrains.comercial.title'),
+      price: t('terrains.comercial.price'),
+      location: t('terrains.comercial.location'), 
+      area: t('terrains.comercial.area'),
       coordinates: { lat: 10.6339, lng: -85.4378 },
       registryData: {
         fincaNumber: "N/A",
         province: "Guanacaste",
         owner: "Disponible",
-        status: "VERIFICANDO",
+        status: t('terrains.comercial.status'),
         inscriptionDate: "En proceso",
         legalStatus: "pending"
       },
       investmentData: {
-        potential: "Muy Alto",
-        zoning: "Comercial",
-        access: "Vía principal"
+        potential: t('terrains.comercial.investmentData.potential'),
+        zoning: t('terrains.comercial.investmentData.zoning'),
+        access: t('terrains.comercial.investmentData.access')
       },
       amenities: {
-        security: "Zona comercial activa",
-        beachAccess: "20 min al aeropuerto",
-        utilities: "Servicios completos",
-        infrastructure: "Frente a carretera"
+        security: t('terrains.comercial.amenities.security'),
+        beachAccess: t('terrains.comercial.amenities.beachAccess'),
+        utilities: t('terrains.comercial.amenities.utilities'),
+        infrastructure: t('terrains.comercial.amenities.infrastructure')
       },
       boxGuarantee: [
-        "Estudio legal completo",
-        "Firma digital desde tu país", 
-        "Seguimiento de obra en plataforma online",
-        "Concierge personal (desde tu llegada al aeropuerto)"
+        t('terrainModal.guarantee1'),
+        t('terrainModal.guarantee2'), 
+        t('terrainModal.guarantee3')
       ]
     },
     {
       id: 4,
-      title: "FINCA YADIRA - Reserva Box",
-      price: "Consultar precio",
-      location: "Santa Cruz, Guanacaste",
-      area: "20,885 m²",
+      title: t('terrains.nahua.title'),
+      price: t('terrains.nahua.price'),
+      location: t('terrains.nahua.location'),
+      area: t('terrains.nahua.area'),
+      coordinates: { lat: 10.188141082943494, lng: -85.48396519145061 },
+      registryData: {
+        fincaNumber: "En proceso",
+        province: "Guanacaste",
+        owner: "Disponible",
+        status: t('terrains.nahua.status'),
+        inscriptionDate: "En proceso",
+        legalStatus: "pending"
+      },
+      investmentData: {
+        potential: t('terrains.nahua.investmentData.potential'),
+        zoning: t('terrains.nahua.investmentData.zoning'),
+        access: t('terrains.nahua.investmentData.access')
+      },
+      amenities: {
+        security: t('terrains.nahua.amenities.security'),
+        beachAccess: t('terrains.nahua.amenities.beachAccess'),
+        utilities: t('terrains.nahua.amenities.utilities'),
+        infrastructure: t('terrains.nahua.amenities.infrastructure')
+      },
+      boxGuarantee: [
+        t('terrainModal.guarantee1'),
+        t('terrainModal.guarantee2'), 
+        t('terrainModal.guarantee3')
+      ],
+      polygonCoords: [
+        { lat: 10.18853778755592, lng: -85.48364138223889 },
+        { lat: 10.18840043260947, lng: -85.48379575335082 },
+        { lat: 10.1883099628453, lng: -85.48391442752035 },
+        { lat: 10.18835001032831, lng: -85.483993758708 },
+        { lat: 10.18854263164778, lng: -85.48408519199698 },
+        { lat: 10.18829737880154, lng: -85.48465345969962 },
+        { lat: 10.18762865740657, lng: -85.48437379269657 },
+        { lat: 10.1877026494401, lng: -85.48425685558972 },
+        { lat: 10.18774405653818, lng: -85.48419558185299 },
+        { lat: 10.18778835721122, lng: -85.48413409703647 },
+        { lat: 10.18784953309344, lng: -85.48403769810834 },
+        { lat: 10.18792664126273, lng: -85.48393624839156 },
+        { lat: 10.18798467183115, lng: -85.48386621064941 },
+        { lat: 10.18805078657644, lng: -85.48381156027217 },
+        { lat: 10.18817254887971, lng: -85.48373846467294 },
+        { lat: 10.18829717908861, lng: -85.48366262229905 },
+        { lat: 10.18841842031046, lng: -85.48363495878812 },
+        { lat: 10.18853778755592, lng: -85.48364138223889 }
+      ]
+    },
+    {
+      id: 5,
+      title: t('terrains.yadira.title'),
+      price: t('terrains.yadira.price'),
+      location: t('terrains.yadira.location'),
+      area: t('terrains.yadira.area'),
       coordinates: { lat: 10.2460913658528, lng: -85.8097140548287 },
       registryData: {
         fincaNumber: "210845",
         province: "Guanacaste",
         owner: "Yadira Gómez Vallejos",
-        status: "INSCRITO",
+        status: t('terrains.yadira.status'),
         inscriptionDate: "24 Nov 2008",
         legalStatus: "clean"
       },
       investmentData: {
-        potential: "Alto",
-        zoning: "Residencial/Comercial",
-        access: "Vía pública directa"
+        potential: t('terrains.yadira.investmentData.potential'),
+        zoning: t('terrains.yadira.investmentData.zoning'),
+        access: t('terrains.yadira.investmentData.access')
       },
       amenities: {
-        security: "Zona residencial tranquila",
-        beachAccess: "15 min a playa",
-        utilities: "Agua, electricidad disponible",
-        infrastructure: "Acceso pavimentado"
+        security: t('terrains.yadira.amenities.security'),
+        beachAccess: t('terrains.yadira.amenities.beachAccess'),
+        utilities: t('terrains.yadira.amenities.utilities'),
+        infrastructure: t('terrains.yadira.amenities.infrastructure')
       },
       boxGuarantee: [
-        "Estudio legal completo",
-        "Firma digital desde tu país", 
-        "Seguimiento de obra en plataforma online",
-        "Concierge personal (desde tu llegada al aeropuerto)"
+        t('terrainModal.guarantee1'),
+        t('terrainModal.guarantee2'), 
+        t('terrainModal.guarantee3'),
+        t('terrainModal.guarantee4')
       ],
       polygonCoords: [
         { lat: 10.24166626252567, lng: -85.80850923036705 },
@@ -182,7 +224,7 @@ export default function InteractiveTerrainMap() {
         { lat: 10.24166626252567, lng: -85.80850923036705 }
       ]
     }
-  ]
+  ], [t])
 
   const layerStyles = {
     legal: {
@@ -190,16 +232,6 @@ export default function InteractiveTerrainMap() {
       pending: { strokeColor: "#F59E0B", fillColor: "#F59E0B", fillOpacity: 0.2 },
       complex: { strokeColor: "#EF4444", fillColor: "#EF4444", fillOpacity: 0.2 }
     }
-  }
-
-  const handleZoom = (direction: 'in' | 'out') => {
-    if (!map) return
-    const currentZoom = map.getZoom() || 15
-    map.setZoom(currentZoom + (direction === 'in' ? 1 : -1))
-  }
-
-  const toggleLayer = (layer: keyof typeof activeLayers) => {
-    setActiveLayers(prev => ({ ...prev, [layer]: !prev[layer] }))
   }
 
   useEffect(() => {
@@ -210,7 +242,7 @@ export default function InteractiveTerrainMap() {
         const loader = new Loader({
           apiKey: "AIzaSyB43q02l5WGOg37weZpzPOdc3a_MEm_fhE",
           version: "weekly",
-          libraries: ["places"]
+          libraries: ["places", "geometry", "marker"] // Agregar marker library
         })
 
         await loader.load()
@@ -223,6 +255,9 @@ export default function InteractiveTerrainMap() {
           mapTypeId: google.maps.MapTypeId.SATELLITE,
           disableDefaultUI: true,
           gestureHandling: "cooperative",
+          tilt: 0,
+          heading: 0,
+          mapId: "terrain_map", // Necesario para la nueva API
           styles: [
             {
               featureType: "poi",
@@ -235,29 +270,71 @@ export default function InteractiveTerrainMap() {
         if (!isMounted) return
         setMap(mapInstance)
 
-        // Enhanced markers and polygons with registry data
+        // Usar la nueva Advanced Markers API (sin warnings)
         terrains.forEach((terrain) => {
-          // Dynamic marker color based on legal status
           const markerColor = terrain.registryData.legalStatus === 'clean' ? '#10B981' : 
                              terrain.registryData.legalStatus === 'pending' ? '#F59E0B' : '#EF4444'
           
-          const marker = new google.maps.Marker({
-            position: terrain.coordinates,
-            map: mapInstance,
-            title: terrain.title,
-            icon: {
-              url: "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
-                <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="20" cy="20" r="18" fill="${markerColor}" stroke="#ffffff" stroke-width="3"/>
-                  <circle cx="20" cy="20" r="8" fill="#ffffff"/>
-                </svg>
-              `),
-              scaledSize: new google.maps.Size(40, 40),
-              anchor: new google.maps.Point(20, 20)
-            }
-          })
+          // Crear elemento HTML para el marcador
+          const markerElement = document.createElement('div')
+          markerElement.innerHTML = `
+            <div style="
+              width: 40px;
+              height: 40px;
+              background-color: ${markerColor};
+              border: 3px solid white;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            ">
+              <div style="
+                width: 8px;
+                height: 8px;
+                background-color: white;
+                border-radius: 50%;
+              "></div>
+            </div>
+          `
 
-          // Enhanced polygon with legal status styling
+          // Usar AdvancedMarkerElement si está disponible, sino fallback a Marker normal
+          if (google.maps.marker && google.maps.marker.AdvancedMarkerElement) {
+            const advancedMarker = new google.maps.marker.AdvancedMarkerElement({
+              map: mapInstance,
+              position: terrain.coordinates,
+              content: markerElement,
+              title: terrain.title
+            })
+
+            advancedMarker.addListener("click", () => {
+              setSelectedTerrain(terrain)
+            })
+          } else {
+            // Fallback a marker tradicional si AdvancedMarkerElement no está disponible
+            const marker = new google.maps.Marker({
+              position: terrain.coordinates,
+              map: mapInstance,
+              title: terrain.title,
+              icon: {
+                url: "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
+                  <svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" fill="${markerColor}" stroke="#ffffff" stroke-width="3"/>
+                    <circle cx="20" cy="20" r="8" fill="#ffffff"/>
+                  </svg>
+                `),
+                scaledSize: new google.maps.Size(40, 40),
+                anchor: new google.maps.Point(20, 20)
+              }
+            })
+
+            marker.addListener("click", () => {
+              setSelectedTerrain(terrain)
+            })
+          }
+
+          // Polygons remain the same
           if (terrain.polygonCoords) {
             const style = layerStyles.legal[terrain.registryData.legalStatus as keyof typeof layerStyles.legal]
             
@@ -271,15 +348,7 @@ export default function InteractiveTerrainMap() {
               map: mapInstance
             })
 
-            marker.addListener("click", () => {
-              setSelectedTerrain(terrain)
-            })
-
             terrainPolygon.addListener("click", () => {
-              setSelectedTerrain(terrain)
-            })
-          } else {
-            marker.addListener("click", () => {
               setSelectedTerrain(terrain)
             })
           }
@@ -291,7 +360,7 @@ export default function InteractiveTerrainMap() {
       } catch (err) {
         console.error("Error loading map:", err)
         if (isMounted) {
-          setError("Error cargando el mapa")
+          setError(t('terrainMap.error'))
           setLoading(false)
         }
       }
@@ -302,11 +371,11 @@ export default function InteractiveTerrainMap() {
     return () => {
       isMounted = false
     }
-  }, [])
+  }, [terrains, t])
 
   return (
     <section id="terrain-map" className="py-16 md:py-24 px-4 bg-zinc-950">
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-7xl relative">
         {/* Enhanced Header */}
         <motion.div
           className="text-center mb-12"
@@ -316,10 +385,10 @@ export default function InteractiveTerrainMap() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-white via-white to-gray-300 bg-clip-text text-transparent">
-            Explora Terrenos Premium
+            {t('terrainMap.title')}
           </h2>
           <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 max-w-3xl mx-auto">
-            Cada propiedad verificada legalmente con datos del Registro Nacional y análisis completo de inversión.
+            {t('terrainMap.subtitle')}
           </p>
         </motion.div>
 
@@ -334,139 +403,51 @@ export default function InteractiveTerrainMap() {
           <div className="text-center p-6 bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-white/10 rounded-xl">
             <Shield className="w-8 h-8 mx-auto mb-3 text-green-400" />
             <h3 className="text-2xl font-bold text-white font-space">{terrains.length}</h3>
-            <p className="text-gray-400 text-sm font-micro uppercase">Títulos Verificados</p>
+            <p className="text-gray-400 text-sm font-micro uppercase">{t('terrainMap.stats.verifiedTitles')}</p>
           </div>
           <div className="text-center p-6 bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-white/10 rounded-xl">
             <MapPin className="w-8 h-8 mx-auto mb-3 text-blue-400" />
-            <h3 className="text-2xl font-bold text-white font-space">3</h3>
-            <p className="text-gray-400 text-sm font-micro uppercase">Provincias</p>
+            <h3 className="text-2xl font-bold text-white font-space">2</h3>
+            <p className="text-gray-400 text-sm font-micro uppercase">{t('terrainMap.stats.provinces')}</p>
           </div>
           <div className="text-center p-6 bg-gradient-to-br from-zinc-800/50 to-zinc-900/50 backdrop-blur-sm border border-white/10 rounded-xl">
             <TrendingUp className="w-8 h-8 mx-auto mb-3 text-purple-400" />
             <h3 className="text-2xl font-bold text-white font-space">100%</h3>
-            <p className="text-gray-400 text-sm font-micro uppercase">Ubicaciones Premium</p>
+            <p className="text-gray-400 text-sm font-micro uppercase">{t('terrainMap.stats.premiumLocations')}</p>
           </div>
         </motion.div>
 
-        {/* Premium Map Container */}
-        <motion.div
-          className="relative"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="relative bg-gradient-to-br from-zinc-900/90 via-zinc-800/80 to-zinc-900/90 
-                         backdrop-blur-xl border border-white/20 rounded-3xl overflow-hidden
-                         shadow-[0_0_80px_rgba(255,255,255,0.1),inset_0_1px_0_rgba(255,255,255,0.1)]">
-            
-            {/* Subtle animated glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-transparent to-purple-500/5 
-                           animate-pulse rounded-3xl pointer-events-none" />
-            
-            {/* Custom Controls */}
-            <div className="absolute top-6 right-6 z-20 flex flex-col gap-3">
-              {/* Zoom Controls */}
-              <div className="bg-black/30 backdrop-blur-md rounded-xl border border-white/10 overflow-hidden">
-                <button
-                  onClick={() => handleZoom('in')}
-                  className="p-3 text-white hover:bg-white/10 transition-colors border-b border-white/10"
-                >
-                  <ZoomIn className="w-5 h-5" />
-                </button>
-                <button
-                  onClick={() => handleZoom('out')}
-                  className="p-3 text-white hover:bg-white/10 transition-colors"
-                >
-                  <ZoomOut className="w-5 h-5" />
-                </button>
-              </div>
+        {/* Modular Map Container with Cinematic Controls */}
+        <MapContainer map={map} loading={loading} error={error}>
+          <div 
+            ref={mapRef} 
+            className="w-full h-[70vh] min-h-[500px] rounded-3xl scroll-container"
+          />
+        </MapContainer>
 
-              {/* Layer Controls */}
-              <div className="bg-black/30 backdrop-blur-md rounded-xl border border-white/10 p-4 min-w-48">
-                <h4 className="text-white font-medium mb-3 text-sm">Capas de Información</h4>
-                <div className="space-y-2">
-                  <button
-                    onClick={() => toggleLayer('legal')}
-                    className={`w-full flex items-center gap-2 p-2 rounded-lg text-sm transition-colors ${
-                      activeLayers.legal 
-                        ? 'bg-green-500/20 text-green-300 border border-green-500/30' 
-                        : 'text-gray-400 hover:text-white'
-                    }`}
-                  >
-                    <Shield className="w-4 h-4" />
-                    Status Legal
-                  </button>
-                  <button
-                    onClick={() => toggleLayer('services')}
-                    className={`w-full flex items-center gap-2 p-2 rounded-lg text-sm transition-colors ${
-                      activeLayers.services 
-                        ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30' 
-                        : 'text-gray-400 hover:text-white'
-                    }`}
-                  >
-                    <MapPin className="w-4 h-4" />
-                    Servicios
-                  </button>
-                  <button
-                    onClick={() => toggleLayer('investment')}
-                    className={`w-full flex items-center gap-2 p-2 rounded-lg text-sm transition-colors ${
-                      activeLayers.investment 
-                        ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30' 
-                        : 'text-gray-400 hover:text-white'
-                    }`}
-                  >
-                    <TrendingUp className="w-4 h-4" />
-                    Inversión
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Loading State */}
-            {loading && (
-              <div className="absolute inset-0 z-10 flex items-center justify-center bg-zinc-900/80 backdrop-blur-sm rounded-3xl">
-                <div className="text-white text-lg">Cargando mapa inteligente...</div>
-              </div>
-            )}
-
-            {error && (
-              <div className="absolute inset-0 z-10 flex items-center justify-center bg-zinc-900/80 backdrop-blur-sm rounded-3xl">
-                <div className="text-red-400 text-lg">{error}</div>
-              </div>
-            )}
-
-            {/* Map */}
-            <div 
-              ref={mapRef} 
-              className="w-full h-[70vh] min-h-[500px] rounded-3xl"
-            />
-          </div>
-
-          {/* Enhanced Legend */}
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <div className="bg-black/30 backdrop-blur-md p-4 border border-white/10 rounded-xl">
-              <div className="flex items-center gap-3">
-                <div className="w-4 h-4 bg-green-400 rounded-full"></div>
-                <span className="text-gray-300 text-sm">Título Limpio</span>
-              </div>
-            </div>
-            <div className="bg-black/30 backdrop-blur-md p-4 border border-white/10 rounded-xl">
-              <div className="flex items-center gap-3">
-                <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
-                <span className="text-gray-300 text-sm">En Proceso</span>
-              </div>
-            </div>
-            <div className="bg-black/30 backdrop-blur-md p-4 border border-white/10 rounded-xl">
-              <div className="flex items-center gap-3">
-                <div className="w-4 h-4 bg-red-400 rounded-full"></div>
-                <span className="text-gray-300 text-sm">Requiere Revisión</span>
-              </div>
+        {/* Enhanced Legend */}
+        <div className="mt-6 flex flex-wrap justify-center gap-4">
+          <div className="bg-black/30 backdrop-blur-md p-4 border border-white/10 rounded-xl">
+            <div className="flex items-center gap-3">
+              <div className="w-4 h-4 bg-green-400 rounded-full"></div>
+              <span className="text-gray-300 text-sm">{t('terrainMap.legend.cleanTitle')}</span>
             </div>
           </div>
-        </motion.div>
+          <div className="bg-black/30 backdrop-blur-md p-4 border border-white/10 rounded-xl">
+            <div className="flex items-center gap-3">
+              <div className="w-4 h-4 bg-yellow-400 rounded-full"></div>
+              <span className="text-gray-300 text-sm">{t('terrainMap.legend.inProcess')}</span>
+            </div>
+          </div>
+          <div className="bg-black/30 backdrop-blur-md p-4 border border-white/10 rounded-xl">
+            <div className="flex items-center gap-3">
+              <div className="w-4 h-4 bg-red-400 rounded-full"></div>
+              <span className="text-gray-300 text-sm">{t('terrainMap.legend.requiresReview')}</span>
+            </div>
+          </div>
+        </div>
 
-        {/* Enhanced Side Panel Modal */}
+        {/* Enhanced Side Panel Modal - COMPLETE WITH TRANSLATIONS */}
         <AnimatePresence>
           {selectedTerrain && (
             <motion.div
@@ -503,32 +484,33 @@ export default function InteractiveTerrainMap() {
                   {/* Basic Info */}
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-zinc-800/50 p-4 rounded-xl">
-                      <div className="text-gray-400 text-sm mb-1">Área en m²</div>
+                      <div className="text-gray-400 text-sm mb-1">{t('terrainModal.areaM2')}</div>
                       <div className="text-white font-semibold text-lg">{selectedTerrain.area}</div>
                     </div>
                     <div className="bg-zinc-800/50 p-4 rounded-xl">
-                      <div className="text-gray-400 text-sm mb-1">Área en pies²</div>
+                      <div className="text-gray-400 text-sm mb-1">{t('terrainModal.areaFt2')}</div>
                       <div className="text-white font-semibold text-lg">
-                        {(parseFloat(selectedTerrain.area.replace(/[^\d.]/g, '')) * 10.764).toLocaleString('en-US', {maximumFractionDigits: 0})} ft²
+                        {selectedTerrain.area === "3,305 m²" ? "35,577 ft²" : 
+                         (parseFloat(selectedTerrain.area.replace(/[^\d.]/g, '')) * 10.764).toLocaleString('en-US', {maximumFractionDigits: 0}) + " ft²"}
                       </div>
                     </div>
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
                     <div className="bg-zinc-800/50 p-4 rounded-xl">
-                      <div className="text-gray-400 text-sm mb-1">Precio</div>
+                      <div className="text-gray-400 text-sm mb-1">{t('terrainModal.price')}</div>
                       <div className="text-white font-semibold text-lg">{selectedTerrain.price}</div>
                     </div>
                     <div className="bg-zinc-800/50 p-4 rounded-xl">
-                      <div className="text-gray-400 text-sm mb-1">Estado</div>
-                      <div className="text-green-400 font-semibold text-sm">Listo para construir</div>
+                      <div className="text-gray-400 text-sm mb-1">{t('terrainModal.status')}</div>
+                      <div className="text-green-400 font-semibold text-sm">{t('terrainModal.readyToBuild')}</div>
                     </div>
                   </div>
 
                   {/* Amenities */}
                   {selectedTerrain.amenities && (
                     <div className="bg-zinc-800/30 p-6 rounded-xl">
-                      <h4 className="text-white font-semibold mb-4">Amenidades Premium</h4>
+                      <h4 className="text-white font-semibold mb-4">{t('terrainModal.premiumAmenities')}</h4>
                       <div className="grid grid-cols-2 gap-3 text-sm">
                         {Object.entries(selectedTerrain.amenities).map(([key, value]) => (
                           <div key={key} className="flex items-center gap-2">
@@ -544,27 +526,27 @@ export default function InteractiveTerrainMap() {
                   <div className="bg-zinc-800/30 p-6 rounded-xl">
                     <h4 className="text-white font-semibold mb-4 flex items-center gap-2">
                       <FileText className="w-5 h-5" />
-                      Información Registral
+                      {t('terrainModal.registryInfo')}
                     </h4>
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div>
-                        <div className="text-gray-400">Número de Finca</div>
+                        <div className="text-gray-400">{t('terrainModal.fincaNumber')}</div>
                         <div className="text-white font-medium">{selectedTerrain.registryData.fincaNumber}</div>
                       </div>
                       <div>
-                        <div className="text-gray-400">Provincia</div>
+                        <div className="text-gray-400">{t('terrainModal.province')}</div>
                         <div className="text-white font-medium">{selectedTerrain.registryData.province}</div>
                       </div>
                       <div>
-                        <div className="text-gray-400">Propietario Actual</div>
+                        <div className="text-gray-400">{t('terrainModal.currentOwner')}</div>
                         <div className="text-white font-medium">{selectedTerrain.registryData.owner}</div>
                       </div>
                       <div>
-                        <div className="text-gray-400">Fecha Inscripción</div>
+                        <div className="text-gray-400">{t('terrainModal.inscriptionDate')}</div>
                         <div className="text-white font-medium">{selectedTerrain.registryData.inscriptionDate}</div>
                       </div>
                       <div className="col-span-2">
-                        <div className="text-gray-400">Estado Legal</div>
+                        <div className="text-gray-400">{t('terrainModal.legalStatus')}</div>
                         <div className={`font-medium inline-flex items-center gap-2 px-3 py-1 rounded-full text-sm ${
                           selectedTerrain.registryData.legalStatus === 'clean' 
                             ? 'bg-green-500/20 text-green-300' 
@@ -583,19 +565,19 @@ export default function InteractiveTerrainMap() {
                   <div className="bg-zinc-800/30 p-6 rounded-xl">
                     <h4 className="text-white font-semibold mb-4 flex items-center gap-2">
                       <TrendingUp className="w-5 h-5" />
-                      Análisis de Inversión
+                      {t('terrainModal.investmentAnalysis')}
                     </h4>
                     <div className="grid grid-cols-2 gap-4 text-sm">
                       <div>
-                        <div className="text-gray-400">Potencial</div>
+                        <div className="text-gray-400">{t('terrainModal.potential')}</div>
                         <div className="text-white font-medium">{selectedTerrain.investmentData.potential}</div>
                       </div>
                       <div>
-                        <div className="text-gray-400">Zonificación</div>
+                        <div className="text-gray-400">{t('terrainModal.zoning')}</div>
                         <div className="text-white font-medium">{selectedTerrain.investmentData.zoning}</div>
                       </div>
                       <div className="col-span-2">
-                        <div className="text-gray-400">Acceso</div>
+                        <div className="text-gray-400">{t('terrainModal.access')}</div>
                         <div className="text-white font-medium">{selectedTerrain.investmentData.access}</div>
                       </div>
                     </div>
@@ -604,7 +586,7 @@ export default function InteractiveTerrainMap() {
                   {/* Box Guarantee */}
                   {selectedTerrain.boxGuarantee && (
                     <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 p-6 rounded-xl border border-blue-500/20">
-                      <h4 className="text-white font-semibold mb-4">Garantía Box Architects</h4>
+                      <h4 className="text-white font-semibold mb-4">{t('terrainModal.boxGuarantee')}</h4>
                       <div className="space-y-2">
                         {selectedTerrain.boxGuarantee.map((guarantee, index) => (
                           <div key={index} className="flex items-center gap-3 text-sm">
@@ -619,14 +601,14 @@ export default function InteractiveTerrainMap() {
                   {/* Enhanced Action Buttons */}
                   <div className="space-y-3">
                     <button className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 px-6 rounded-xl font-medium hover:from-blue-700 hover:to-blue-800 transition-colors flex items-center justify-center gap-2">
-                      Solicitar Propuesta Personalizada PDF
+                      {t('terrainModal.requestPDF')}
                     </button>
                     <div className="grid grid-cols-2 gap-3">
                       <button className="bg-green-600 text-white py-3 px-4 rounded-xl font-medium hover:bg-green-700 transition-colors flex items-center justify-center gap-2 text-sm">
-                        WhatsApp Concierge
+                        {t('terrainModal.whatsappConcierge')}
                       </button>
                       <button className="bg-gradient-to-r from-orange-600 to-red-600 text-white py-3 px-4 rounded-xl font-medium hover:from-orange-700 hover:to-red-700 transition-colors flex items-center justify-center gap-2 text-sm">
-                       🖊️ Compra Segura
+                        {t('terrainModal.securePurchase')}
                       </button>
                     </div>
                   </div>
@@ -639,266 +621,3 @@ export default function InteractiveTerrainMap() {
     </section>
   )
 }
-
-
-
-
-// "use client"
-
-// import { useEffect, useRef, useState } from "react"
-// import { motion } from "framer-motion"
-// import { Loader } from "@googlemaps/js-api-loader"
-// import { MapPin, DollarSign } from "lucide-react"
-// import { useTranslation } from "@/lib/i18n"
-
-// export default function InteractiveTerrainMap() {
-//   const { t } = useTranslation()
-//   const mapRef = useRef<HTMLDivElement>(null)
-//   const [map, setMap] = useState<google.maps.Map | null>(null)
-//   const [loading, setLoading] = useState(true)
-//   const [error, setError] = useState<string | null>(null)
-
-//   // Terrenos con datos reales del KML
-//   const terrains = [
-//     {
-//       id: 1,
-//       title: "Terreno Vista al Mar",
-//       price: "₡85,000,000",
-//       location: "Tamarindo, Guanacaste",
-//       area: "2,500 m²",
-//       coordinates: { lat: 10.2989, lng: -85.8377 }
-//     },
-//     {
-//       id: 2,
-//       title: "Lote Montaña",
-//       price: "₡45,000,000", 
-//       location: "Monteverde, Puntarenas",
-//       area: "1,800 m²",
-//       coordinates: { lat: 10.3181, lng: -84.8066 }
-//     },
-//     {
-//       id: 3,
-//       title: "Terreno Comercial",
-//       price: "₡120,000,000",
-//       location: "Liberia, Guanacaste", 
-//       area: "3,200 m²",
-//       coordinates: { lat: 10.6339, lng: -85.4378 }
-//     },
-//     {
-//       id: 4,
-//       title: "FINCA YADIRA",
-//       price: "Consultar precio",
-//       location: "Finca Yadira, Guanacaste",
-//       area: "Terreno delimitado",
-//       coordinates: { lat: 10.2460913658528, lng: -85.8097140548287 },
-//       polygon: [
-//         { lat: 10.24166626252567, lng: -85.80850923036705 },
-//         { lat: 10.24276366413611, lng: -85.80869563071455 },
-//         { lat: 10.2439559832139, lng: -85.80887616824194 },
-//         { lat: 10.24424300005094, lng: -85.80892610077787 },
-//         { lat: 10.24479066468552, lng: -85.80905649299807 },
-//         { lat: 10.24525747048566, lng: -85.80915668282704 },
-//         { lat: 10.2458416836334, lng: -85.80922446002668 },
-//         { lat: 10.24618886601298, lng: -85.80927770074294 },
-//         { lat: 10.24624877792519, lng: -85.80927712529116 },
-//         { lat: 10.24623551742512, lng: -85.80932607478478 },
-//         { lat: 10.24615908976471, lng: -85.80956050973273 },
-//         { lat: 10.24425442076155, lng: -85.80931817260917 },
-//         { lat: 10.2439848507644, lng: -85.80928010502841 },
-//         { lat: 10.2433340664313, lng: -85.80919283809926 },
-//         { lat: 10.24246514726847, lng: -85.80908397033218 },
-//         { lat: 10.24162134042225, lng: -85.80894839767413 },
-//         { lat: 10.24162853811266, lng: -85.80881553666737 },
-//         { lat: 10.24166626252567, lng: -85.80850923036705 }
-//       ]
-//     }
-//   ]
-
-//   useEffect(() => {
-//     let isMounted = true
-
-//     const initMap = async () => {
-//       try {
-//         const loader = new Loader({
-//           apiKey: "AIzaSyB43q02l5WGOg37weZpzPOdc3a_MEm_fhE",
-//           version: "weekly",
-//           libraries: ["places"]
-//         })
-
-//         await loader.load()
-        
-//         if (!isMounted || !mapRef.current) return
-
-//         const mapInstance = new google.maps.Map(mapRef.current, {
-//           center: { lat: 10.2461, lng: -85.8097 }, // Centrado en Finca Yadira
-//           zoom: 12,
-//           mapTypeId: google.maps.MapTypeId.SATELLITE,
-//           mapTypeControl: true,
-//           streetViewControl: false,
-//           fullscreenControl: true,
-//           zoomControl: true
-//         })
-
-//         if (!isMounted) return
-//         setMap(mapInstance)
-
-//         // Agregar markers y polígonos
-//         terrains.forEach((terrain) => {
-//           // Crear marker
-//           const marker = new google.maps.Marker({
-//             position: terrain.coordinates,
-//             map: mapInstance,
-//             title: terrain.title,
-//             icon: {
-//               url: "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(`
-//                 <svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-//                   <circle cx="16" cy="16" r="14" fill="#ffffff" stroke="#000000" stroke-width="2"/>
-//                   <circle cx="16" cy="16" r="6" fill="#000000"/>
-//                 </svg>
-//               `),
-//               scaledSize: new google.maps.Size(32, 32),
-//               anchor: new google.maps.Point(16, 16)
-//             }
-//           })
-
-//           // Si tiene polígono (como Finca Yadira), dibujarlo
-//           if (terrain.polygon) {
-//             const polygon = new google.maps.Polygon({
-//               paths: terrain.polygon,
-//               strokeColor: "#FFD700", // Amarillo como en Google Earth
-//               strokeOpacity: 0.8,
-//               strokeWeight: 3,
-//               fillColor: "#FFD700",
-//               fillOpacity: 0.4,
-//               map: mapInstance
-//             })
-
-//             // Click en polígono también abre info
-//             polygon.addListener("click", () => {
-//               infoWindow.open(mapInstance, marker)
-//             })
-//           }
-
-//           // Info window
-//           const infoWindow = new google.maps.InfoWindow({
-//             content: `
-//               <div style="padding: 12px; max-width: 250px; font-family: system-ui, sans-serif;">
-//                 <h3 style="margin: 0 0 8px 0; color: #000; font-size: 16px; font-weight: bold;">${terrain.title}</h3>
-//                 <p style="margin: 4px 0; color: #666; font-size: 14px;">${terrain.location}</p>
-//                 <p style="margin: 4px 0; color: #000; font-size: 18px; font-weight: bold;">${terrain.price}</p>
-//                 <p style="margin: 4px 0; color: #666; font-size: 14px;">${terrain.area}</p>
-//                 ${terrain.polygon ? '<p style="margin: 4px 0; color: #DAA520; font-size: 12px;">Área delimitada visible</p>' : ''}
-//               </div>
-//             `
-//           })
-
-//           marker.addListener("click", () => {
-//             infoWindow.open(mapInstance, marker)
-//           })
-//         })
-
-//         if (isMounted) {
-//           setLoading(false)
-//         }
-//       } catch (err) {
-//         if (isMounted) {
-//           setError("Error cargando el mapa")
-//           setLoading(false)
-//         }
-//       }
-//     }
-
-//     initMap()
-
-//     return () => {
-//       isMounted = false
-//     }
-//   }, [])
-
-//   return (
-//     <section id="terrain-map" className="py-16 md:py-24 px-4 bg-zinc-950">
-//       <div className="container mx-auto max-w-6xl">
-//         {/* Header */}
-//         <motion.div
-//           className="text-center mb-12"
-//           initial={{ opacity: 0, y: 30 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ duration: 0.8 }}
-//           viewport={{ once: true }}
-//         >
-//           <h2 className="section-title text-3xl md:text-4xl mb-5">Explora Terrenos Disponibles</h2>
-//           <p className="text-gray-300 text-lg md:text-xl leading-relaxed mb-8 max-w-3xl mx-auto font-satoshi">
-//             Descubre ubicaciones premium en Costa Rica. Haz clic en los marcadores para ver detalles de cada terreno.
-//           </p>
-//         </motion.div>
-
-//         {/* Stats */}
-//         <motion.div
-//           className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
-//           initial={{ opacity: 0, y: 30 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ delay: 0.3, duration: 0.6 }}
-//           viewport={{ once: true }}
-//         >
-//           <div className="text-center p-6 border border-white/10 rounded-lg">
-//             <MapPin className="w-8 h-8 mx-auto mb-3 text-white" />
-//             <h3 className="text-2xl font-bold text-white font-space">{terrains.length}</h3>
-//             <p className="text-gray-400 text-sm font-micro uppercase">Terrenos Disponibles</p>
-//           </div>
-//           <div className="text-center p-6 border border-white/10 rounded-lg">
-//             <DollarSign className="w-8 h-8 mx-auto mb-3 text-white" />
-//             <h3 className="text-2xl font-bold text-white font-space">3</h3>
-//             <p className="text-gray-400 text-sm font-micro uppercase">Provincias</p>
-//           </div>
-//           <div className="text-center p-6 border border-white/10 rounded-lg">
-//             <MapPin className="w-8 h-8 mx-auto mb-3 text-white" />
-//             <h3 className="text-2xl font-bold text-white font-space">100%</h3>
-//             <p className="text-gray-400 text-sm font-micro uppercase">Ubicaciones Premium</p>
-//           </div>
-//         </motion.div>
-
-//         {/* Map Container */}
-//         <motion.div
-//           className="relative"
-//           initial={{ opacity: 0, y: 30 }}
-//           whileInView={{ opacity: 1, y: 0 }}
-//           transition={{ delay: 0.5, duration: 0.8 }}
-//           viewport={{ once: true }}
-//         >
-//           <div className="bg-zinc-900 border border-white/10 rounded-lg overflow-hidden">
-//             {loading && (
-//               <div className="absolute inset-0 z-10 flex items-center justify-center bg-zinc-900">
-//                 <div className="text-white">Cargando mapa...</div>
-//               </div>
-//             )}
-//             {error && (
-//               <div className="absolute inset-0 z-10 flex items-center justify-center bg-zinc-900">
-//                 <div className="text-red-400">{error}</div>
-//               </div>
-//             )}
-//             <div 
-//               ref={mapRef} 
-//               className="w-full h-96 md:h-[500px] lg:h-[600px]"
-//             />
-//           </div>
-          
-//           {/* Map Legend */}
-//           <div className="mt-6 flex justify-center gap-6">
-//             <div className="bg-black/50 backdrop-blur-md p-4 border border-white/10 rounded-lg">
-//               <div className="flex items-center gap-3">
-//                 <div className="w-4 h-4 bg-white rounded-full border-2 border-black"></div>
-//                 <span className="text-gray-300 text-sm font-satoshi">Terrenos Disponibles</span>
-//               </div>
-//             </div>
-//             <div className="bg-black/50 backdrop-blur-md p-4 border border-white/10 rounded-lg">
-//               <div className="flex items-center gap-3">
-//                 <div className="w-4 h-4 bg-yellow-400 border-2 border-yellow-600"></div>
-//                 <span className="text-gray-300 text-sm font-satoshi">Área Delimitada</span>
-//               </div>
-//             </div>
-//           </div>
-//         </motion.div>
-//       </div>
-//     </section>
-//   )
-// }
