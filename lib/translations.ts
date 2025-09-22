@@ -329,9 +329,96 @@ export const translations = {
     "terrainModal.guarantee2": "Digital signature from your country",
     "terrainModal.guarantee3": "Online platform project tracking",
     "terrainModal.guarantee4": "Personal concierge (from airport arrival)",
-    "terrainModal.requestPDF": "Request Personalized PDF Proposal",
-    "terrainModal.whatsappConcierge": "WhatsApp Concierge",
-    "terrainModal.securePurchase": "🖊️ Secure Purchase"
+    "terrainModal.requestPDF": "Free Legal consult",
+    "terrainModal.whatsappConcierge":"WhatsApp Agent",
+    "terrainModal.securePurchase": "Schedule call",
+
+
+
+
+    "terrains.sanMarco.title": "San Marco Agricultural Lot",
+    "terrains.sanMarco.price": "$45,000 USD",
+    "terrains.sanMarco.location": "Santa Cruz, Guanacaste",
+    "terrains.sanMarco.area": "363 m²",
+    "terrains.sanMarco.status": "REGISTERED",
+    "terrains.sanMarco.amenities.security": "Quiet and safe area",
+    "terrains.sanMarco.amenities.beachAccess": "15 min to main beaches",
+    "terrains.sanMarco.amenities.utilities": "Water and electricity available",
+    "terrains.sanMarco.amenities.infrastructure": "Developed infrastructure",
+    "terrains.sanMarco.investmentData.potential": "High",
+    "terrains.sanMarco.investmentData.zoning": "Agricultural/Commercial",
+    "terrains.sanMarco.investmentData.access": "Direct public road",
+
+    // Contact Section - Enhanced Multi-Step (AGREGAR ESTAS)
+    "contact.steps.vision": "What's your vision?",
+    "contact.steps.details": "Project details", 
+    "contact.steps.budget": "Budget & timeline",
+    "contact.steps.contact": "Contact information",
+
+    "contact.dreamProjectTitle": "What's your dream project?",
+    "contact.dreamProjectSubtitle": "Select the type of project you want to develop",
+
+    "contact.projectType.vacationHome": "Vacation Home",
+    "contact.projectType.investment": "Investment Property",
+
+    "contact.projectDescriptions.house": "Your dream home in Costa Rica",
+    "contact.projectDescriptions.vacationHome": "Weekend getaway retreat", 
+    "contact.projectDescriptions.investment": "To generate income",
+    "contact.projectDescriptions.restaurant": "Unique gastronomic space",
+    "contact.projectDescriptions.hotel": "Hospitality with personality",
+    "contact.projectDescriptions.other": "Tell us your idea",
+
+    "contact.locationTitle": "Where do you envision it?",
+    "contact.locationSubtitle": "Location is key to your project's success",
+    "contact.locationHelper": "Mention province, canton, or specific characteristics like \"near the beach\" or \"mountain area\"",
+
+    "contact.recommendationsTitle": "Personalized recommendations",
+    "contact.recommendations.guanacasteClimate": "Consider land near Guanacaste for better climate",
+    "contact.recommendations.tropicalDesign": "Tropical brutalist design adapts perfectly to the environment", 
+    "contact.recommendations.touristZones": "Tourist zones have better ROI for rentals",
+    "contact.recommendations.beachProperties": "Properties near beaches appreciate 15% annually",
+    "contact.recommendations.premiumBudget": "Your budget allows for premium materials and spectacular views",
+
+    "contact.budgetTimelineTitle": "Budget and timeline",
+    "contact.budgetTimelineSubtitle": "This helps us recommend the best opportunities for you",
+    "contact.budgetLabel": "Estimated budget", 
+    "contact.timelineLabel": "When do you want to start?",
+
+    "contact.budget.under100k": "Under $100k",
+    "contact.budget.100k250k": "$100k - $250k",
+    "contact.budget.250k500k": "$250k - $500k", 
+    "contact.budget.over500k": "Over $500k",
+
+    "contact.budgetDescriptions.under100k": "Land + basic house",
+    "contact.budgetDescriptions.100k250k": "Complete house with finishes",
+    "contact.budgetDescriptions.250k500k": "Premium project with luxuries",
+    "contact.budgetDescriptions.over500k": "Dream villa",
+
+    "contact.timeline.asap": "As soon as possible",
+    "contact.timeline.sixMonths": "In 6 months", 
+    "contact.timeline.oneYear": "In 1 year",
+    "contact.timeline.flexible": "Flexible",
+
+    "contact.timelineDescriptions.asap": "Ready to start",
+    "contact.timelineDescriptions.sixMonths": "Time to plan",
+    "contact.timelineDescriptions.oneYear": "Medium-term project", 
+    "contact.timelineDescriptions.flexible": "When the perfect moment comes",
+
+    "contact.finalStepTitle": "Final step!",
+    "contact.finalStepSubtitle": "Contact information to schedule your free consultation",
+
+    "contact.projectSummary": "Project summary:",
+    "contact.summaryType": "Type",
+    "contact.summaryLocation": "Location",
+    "contact.summaryBudget": "Budget", 
+    "contact.summaryTimeline": "Timeline",
+
+    "contact.backButton": "Back",
+    "contact.nextButton": "Next",
+    "contact.sending": "Sending...",
+    "contact.successMessage": "Message sent successfully. We will contact you soon.",
+    "contact.errorMessage": "Error sending message. Please try again.",
+    "contact.bottomMessage": "We will contact you within 24 hours to schedule your free consultation"
   },
 
   es: {
@@ -665,8 +752,91 @@ export const translations = {
     "terrainModal.guarantee2": "Firma digital desde tu país",
     "terrainModal.guarantee3": "Seguimiento de obra en plataforma online",
     "terrainModal.guarantee4": "Concierge personal (desde tu llegada al aeropuerto)",
-    "terrainModal.requestPDF": "Solicitar Propuesta Personalizada PDF",
-    "terrainModal.whatsappConcierge": "WhatsApp Concierge",
-    "terrainModal.securePurchase": "🖊️ Compra Segura"
+    "terrainModal.requestPDF": "Consulta legal gratuita",
+    "terrainModal.whatsappConcierge": "Agente WhatsApp",
+    "terrainModal.securePurchase": "Agendar llamada",
+    "terrains.sanMarco.title": "Lote Agropecuaria San Marco",
+    "terrains.sanMarco.price": "$45,000 USD",
+    "terrains.sanMarco.location": "Santa Cruz, Guanacaste",
+    "terrains.sanMarco.area": "363 m²",
+    "terrains.sanMarco.status": "INSCRITO",
+    "terrains.sanMarco.amenities.security": "Zona tranquila y segura",
+    "terrains.sanMarco.amenities.beachAccess": "15 min a playas principales",
+    "terrains.sanMarco.amenities.utilities": "Agua y electricidad disponible",
+    "terrains.sanMarco.amenities.infrastructure": "Infraestructura desarrollada",
+    "terrains.sanMarco.investmentData.potential": "Alto",
+    "terrains.sanMarco.investmentData.zoning": "Agropecuario/Comercial",
+    "terrains.sanMarco.investmentData.access": "Vía pública directa",
+
+    // Contact Section - Enhanced Multi-Step (AGREGAR ESTAS)
+    "contact.steps.vision": "¿Cuál es tu visión?",
+    "contact.steps.details": "Detalles del proyecto",
+    "contact.steps.budget": "Presupuesto y timeline", 
+    "contact.steps.contact": "Información de contacto",
+
+    "contact.dreamProjectTitle": "¿Cuál es tu proyecto soñado?",
+    "contact.dreamProjectSubtitle": "Selecciona el tipo de proyecto que quieres desarrollar",
+
+    "contact.projectType.vacationHome": "Casa Vacacional",
+    "contact.projectType.investment": "Propiedad de Inversión",
+
+    "contact.projectDescriptions.house": "Tu hogar soñado en Costa Rica",
+    "contact.projectDescriptions.vacationHome": "Refugio de fin de semana",
+    "contact.projectDescriptions.investment": "Para generar ingresos", 
+    "contact.projectDescriptions.restaurant": "Espacio gastronómico único",
+    "contact.projectDescriptions.hotel": "Hospedaje con personalidad",
+    "contact.projectDescriptions.other": "Cuéntanos tu idea",
+
+    "contact.locationTitle": "¿Dónde lo imaginas?",
+    "contact.locationSubtitle": "La ubicación es clave para el éxito de tu proyecto",
+    "contact.locationHelper": "Menciona provincia, cantón, o características específicas como \"cerca de la playa\" o \"zona montañosa\"",
+
+    "contact.recommendationsTitle": "Recomendaciones personalizadas",
+    "contact.recommendations.guanacasteClimate": "Considera terrenos cerca de Guanacaste para mejor clima",
+    "contact.recommendations.tropicalDesign": "Diseño tropical brutalista se adapta perfecto al entorno",
+    "contact.recommendations.touristZones": "Zonas turísticas tienen mejor ROI para alquileres", 
+    "contact.recommendations.beachProperties": "Propiedades cerca de playas se valorizan 15% anual",
+    "contact.recommendations.premiumBudget": "Tu presupuesto permite materiales premium y vistas espectaculares",
+
+    "contact.budgetTimelineTitle": "Presupuesto y timeline",
+    "contact.budgetTimelineSubtitle": "Esto nos ayuda a recomendarte las mejores oportunidades",
+    "contact.budgetLabel": "Presupuesto estimado",
+    "contact.timelineLabel": "¿Cuándo quieres empezar?",
+
+    "contact.budget.under100k": "Menos de $100k",
+    "contact.budget.100k250k": "$100k - $250k", 
+    "contact.budget.250k500k": "$250k - $500k",
+    "contact.budget.over500k": "Más de $500k",
+
+    "contact.budgetDescriptions.under100k": "Terreno + casa básica",
+    "contact.budgetDescriptions.100k250k": "Casa completa con acabados",
+    "contact.budgetDescriptions.250k500k": "Proyecto premium con lujos",
+    "contact.budgetDescriptions.over500k": "Villa de ensueño",
+
+    "contact.timeline.asap": "Lo antes posible",
+    "contact.timeline.sixMonths": "En 6 meses",
+    "contact.timeline.oneYear": "En 1 año", 
+    "contact.timeline.flexible": "Flexible",
+
+    "contact.timelineDescriptions.asap": "Listo para empezar",
+    "contact.timelineDescriptions.sixMonths": "Tiempo para planificar",
+    "contact.timelineDescriptions.oneYear": "Proyecto a mediano plazo",
+    "contact.timelineDescriptions.flexible": "Cuando sea el momento perfecto",
+
+    "contact.finalStepTitle": "¡Último paso!",
+    "contact.finalStepSubtitle": "Información de contacto para agendar tu consulta gratuita",
+
+    "contact.projectSummary": "Resumen de tu proyecto:",
+    "contact.summaryType": "Tipo",
+    "contact.summaryLocation": "Ubicación",
+    "contact.summaryBudget": "Presupuesto",
+    "contact.summaryTimeline": "Timeline",
+
+    "contact.backButton": "Atrás", 
+    "contact.nextButton": "Siguiente",
+    "contact.sending": "Enviando...",
+    "contact.successMessage": "Mensaje enviado exitosamente. Te contactaremos pronto.",
+    "contact.errorMessage": "Error al enviar el mensaje. Por favor, intenta nuevamente.",
+    "contact.bottomMessage": "Te contactaremos en las próximas 24 horas para agendar tu consulta gratuita"
   }
 }
