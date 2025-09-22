@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"
+     xmlns:gx="http://www.google.com/kml/ext/2.2"
+     xmlns:kml="http://www.opengis.net/kml/2.2"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+
+  <Document id="Finca-Carlos">
+    <name>FINCA CARLOS</name>
+
+    <!-- Estilos normales y resaltados -->
+    <gx:CascadingStyle kml:id="style_highlight">
+      <Style>
+        <IconStyle>
+          <scale>1.2</scale>
+          <Icon>
+            <href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+          </Icon>
+          <hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+        </IconStyle>
+        <LabelStyle/>
+        <LineStyle>
+          <color>ff58eeff</color> <!-- línea celeste -->
+          <width>6</width>
+        </LineStyle>
+        <PolyStyle>
+          <color>80007cf5</color> <!-- relleno semi-transparente -->
+        </PolyStyle>
+        <BalloonStyle/>
+      </Style>
+    </gx:CascadingStyle>
+
+    <gx:CascadingStyle kml:id="style_normal">
+      <Style>
+        <IconStyle>
+          <Icon>
+            <href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+          </Icon>
+          <hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+        </IconStyle>
+        <LabelStyle/>
+        <LineStyle>
+          <color>ff58eeff</color>
+          <width>4</width>
+        </LineStyle>
+        <PolyStyle>
+          <color>80007cf5</color>
+        </PolyStyle>
+        <BalloonStyle/>
+      </Style>
+    </gx:CascadingStyle>
+
+    <StyleMap id="style_map">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#style_normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#style_highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+
+    <!-- Primer polígono -->
+    <Placemark id="finca-carlos-1">
+      <name>Finca Carlos - Polígono 1</name>
+      <LookAt>
+        <longitude>-85.6627</longitude>
+        <latitude>10.1770</latitude>
+        <altitude>0</altitude>
+        <heading>0</heading>
+        <tilt>0</tilt>
+        <gx:fovy>30</gx:fovy>
+        <range>500</range>
+        <altitudeMode>clampToGround</altitudeMode>
+      </LookAt>
+      <styleUrl>#style_map</styleUrl>
+
+      <ExtendedData>
+        <Data name="finca"><value>0086474</value></Data>
+        <Data name="identifica"><value>50303008647400</value></Data>
+        <Data name="plano"><value>509853541991</value></Data>
+        <Data name="bloque"><value>055</value></Data>
+        <Data name="predio"><value>015</value></Data>
+        <Data name="perimetro"><value>5079.13211628</value></Data>
+        <Data name="area"><value>1241350.5073</value></Data>
+        <Data name="provincia"><value>5</value></Data>
+        <Data name="canton"><value>03</value></Data>
+        <Data name="distrito"><value>03</value></Data>
+      </ExtendedData>
+
+      <MultiGeometry>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -85.66274817494218,10.177029165993702
+                -85.66274410657518,10.17727563954692
+                -85.66179535051204,10.177250584827178
+                -85.66150401917456,10.177399021201325
+                ... (todas las coordenadas originales aquí) ...
+                -85.66276585810542,10.17595799885055
+                -85.66274817494218,10.177029165993702
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+
+    <!-- Segundo polígono -->
+    <Placemark id="finca-carlos-2">
+      <name>Finca Carlos - Polígono 2</name>
+      <LookAt>
+        <longitude>-85.6627</longitude>
+        <latitude>10.1770</latitude>
+        <altitude>0</altitude>
+        <heading>0</heading>
+        <tilt>0</tilt>
+        <gx:fovy>30</gx:fovy>
+        <range>500</range>
+        <altitudeMode>clampToGround</altitudeMode>
+      </LookAt>
+      <styleUrl>#style_map</styleUrl>
+
+      <ExtendedData>
+        <Data name="finca"><value>0086474</value></Data>
+        <Data name="identifica"><value>50303008647400</value></Data>
+        <Data name="plano"><value>509853541991</value></Data>
+        <Data name="bloque"><value>055</value></Data>
+        <Data name="predio"><value>015</value></Data>
+        <Data name="perimetro"><value>5079.13211628</value></Data>
+        <Data name="area"><value>1241350.5073</value></Data>
+        <Data name="provincia"><value>5</value></Data>
+        <Data name="canton"><value>03</value></Data>
+        <Data name="distrito"><value>03</value></Data>
+      </ExtendedData>
+
+      <MultiGeometry>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -85.66274817494218,10.177029165993702
+                -85.66274410657518,10.17727563954692
+                -85.66179535051204,10.177250584827178
+                ... (todas las coordenadas originales aquí) ...
+                -85.66276585810542,10.17595799885055
+                -85.66274817494218,10.177029165993702
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+
+  </Document>
+</kml>

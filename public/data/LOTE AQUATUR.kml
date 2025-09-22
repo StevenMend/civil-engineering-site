@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"
+     xmlns:gx="http://www.google.com/kml/ext/2.2"
+     xmlns:kml="http://www.opengis.net/kml/2.2"
+     xmlns:atom="http://www.w3.org/2005/Atom">
+
+  <Document id="Finca-0111830">
+    <name>FINCA 0111830</name>
+
+    <!-- Estilos (normal y resaltado) -->
+    <gx:CascadingStyle kml:id="style_highlight">
+      <Style>
+        <IconStyle>
+          <scale>1.2</scale>
+          <Icon>
+            <href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+          </Icon>
+          <hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+        </IconStyle>
+        <LabelStyle/>
+        <LineStyle>
+          <color>ff58eeff</color>
+          <width>6</width>
+        </LineStyle>
+        <PolyStyle>
+          <color>80007cf5</color>
+        </PolyStyle>
+        <BalloonStyle/>
+      </Style>
+    </gx:CascadingStyle>
+
+    <gx:CascadingStyle kml:id="style_normal">
+      <Style>
+        <IconStyle>
+          <Icon>
+            <href>https://earth.google.com/earth/document/icon?color=1976d2&amp;id=2000&amp;scale=4</href>
+          </Icon>
+          <hotSpot x="64" y="128" xunits="pixels" yunits="insetPixels"/>
+        </IconStyle>
+        <LabelStyle/>
+        <LineStyle>
+          <color>ff58eeff</color>
+          <width>4</width>
+        </LineStyle>
+        <PolyStyle>
+          <color>80007cf5</color>
+        </PolyStyle>
+        <BalloonStyle/>
+      </Style>
+    </gx:CascadingStyle>
+
+    <StyleMap id="style_map">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#style_normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#style_highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+
+    <!-- Polígono de la finca -->
+    <Placemark id="finca-0111830">
+      <name>Finca 0111830</name>
+      <LookAt>
+        <longitude>-85.8182</longitude>
+        <latitude>10.1804</latitude>
+        <altitude>0</altitude>
+        <heading>0</heading>
+        <tilt>0</tilt>
+        <gx:fovy>30</gx:fovy>
+        <range>500</range>
+        <altitudeMode>clampToGround</altitudeMode>
+      </LookAt>
+      <styleUrl>#style_map</styleUrl>
+
+      <ExtendedData>
+        <Data name="finca"><value>0111830</value></Data>
+        <Data name="identifica"><value>50303011183000</value></Data>
+        <Data name="plano"><value>509532222004</value></Data>
+        <Data name="bloque"><value>040</value></Data>
+        <Data name="predio"><value>032</value></Data>
+        <Data name="perimetro"><value>219.054927565</value></Data>
+        <Data name="area"><value>2030.77645524</value></Data>
+        <Data name="provincia"><value>5</value></Data>
+        <Data name="canton"><value>03</value></Data>
+        <Data name="distrito"><value>03</value></Data>
+      </ExtendedData>
+
+      <MultiGeometry>
+        <Polygon>
+          <outerBoundaryIs>
+            <LinearRing>
+              <coordinates>
+                -85.81837479635618,10.180812881466323
+                -85.81791658569395,10.180224320528097
+                -85.81822277281115,10.18001993162109
+                -85.8183443781139,10.180163761340737
+                -85.81837840444072,10.180348622890065
+                -85.81832291201906,10.180397507742526
+                -85.81831458509909,10.180416854622777
+                -85.81837479635618,10.180812881466323
+              </coordinates>
+            </LinearRing>
+          </outerBoundaryIs>
+        </Polygon>
+      </MultiGeometry>
+    </Placemark>
+  </Document>
+</kml>
