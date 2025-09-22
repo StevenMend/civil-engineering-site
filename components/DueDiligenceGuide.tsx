@@ -84,36 +84,36 @@ export default function DueDiligenceGuide({
   }, [handleInputChange])
 
   const handleEasyChat = async () => {
-  const whatsappNumber = "+50661681784"  // Va a Box ✅
-  const terrainInfo = selectedTerrain ? `${selectedTerrain.title} (${selectedTerrain.location})` : "Consulta general"
-  const message = `Hola! Me interesa una asesoría de Due Diligence para: ${terrainInfo}${formData.fullName ? `. Mi nombre es ${formData.fullName}` : ''}${formData.email ? ` y mi email es ${formData.email}` : ''}.`
-  
-  // TRACKING SILENCIOSO - Solo a ti ✅
-  try {
-    const notificationPayload = {
-      type: 'easy_chat_used',
-      terrain: terrainInfo,
-      user_name: formData.fullName || 'No proporcionado',
-      user_email: formData.email || 'No proporcionado',
-      user_whatsapp: formData.whatsapp || 'No proporcionado',
-      timestamp: new Date().toISOString(),
-      _subject: `🟢 Easy Chat usado - ${terrainInfo}`,
-      _replyto: 'noreply@boxarchitects.com'
-    }
+    const whatsappNumber = "+50661681784"  // Va a Box ✅
+    const terrainInfo = selectedTerrain ? `${selectedTerrain.title} (${selectedTerrain.location})` : "Consulta general"
+    const message = `Hola! Me interesa una asesoría de Due Diligence para: ${terrainInfo}${formData.fullName ? `. Mi nombre es ${formData.fullName}` : ''}${formData.email ? ` y mi email es ${formData.email}` : ''}.`
+    
+    // TRACKING SILENCIOSO - Solo a ti ✅
+    try {
+      const notificationPayload = {
+        type: 'easy_chat_used',
+        terrain: terrainInfo,
+        user_name: formData.fullName || 'No proporcionado',
+        user_email: formData.email || 'No proporcionado',
+        user_whatsapp: formData.whatsapp || 'No proporcionado',
+        timestamp: new Date().toISOString(),
+        _subject: `🟢 Easy Chat usado - ${terrainInfo}`,
+        _replyto: 'noreply@boxarchitects.com'
+      }
 
-    fetch('https://formspree.io/f/mrbqbqbj', {  // Solo a ti ✅
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(notificationPayload)
-    }).catch(err => console.log('Notification error:', err))
-  } catch (error) {
-    console.log('Silent notification failed:', error)
+      fetch('https://formspree.io/f/mrbqbqbj', {  // Solo a ti ✅
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(notificationPayload)
+      }).catch(err => console.log('Notification error:', err))
+    } catch (error) {
+      console.log('Silent notification failed:', error)
+    }
+    
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${encodedMessage}`
+    window.open(whatsappUrl, '_blank')
   }
-  
-  const encodedMessage = encodeURIComponent(message)
-  const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${encodedMessage}`
-  window.open(whatsappUrl, '_blank')
-}
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -189,6 +189,25 @@ export default function DueDiligenceGuide({
       return () => clearTimeout(timer)
     }
   }, [status.message])
+
+  // Control de scroll para mobile
+  useEffect(() => {
+    if (isOpen) {
+      // Prevenir scroll del body cuando modal está abierto
+      document.body.style.overflow = 'hidden'
+      document.body.style.touchAction = 'none'
+    } else {
+      // Restaurar scroll del body
+      document.body.style.overflow = ''
+      document.body.style.touchAction = ''
+    }
+
+    // Cleanup al desmontar
+    return () => {
+      document.body.style.overflow = ''
+      document.body.style.touchAction = ''
+    }
+  }, [isOpen])
 
   const sections = [
     {
@@ -278,7 +297,7 @@ export default function DueDiligenceGuide({
               exit={{ scale: 0.95, opacity: 0 }}
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="w-full max-w-6xl bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-700 overflow-hidden mt-4 md:mt-0">
+              <div className="w-full max-w-6xl bg-black rounded-2xl shadow-2xl border border-white/20 overflow-hidden mt-4 md:mt-0">
                 
                 {/* Toast - Fixed positioning */}
                 <AnimatePresence>
@@ -305,7 +324,7 @@ export default function DueDiligenceGuide({
                 </AnimatePresence>
 
                 {/* Header - Fixed */}
-                <div className="flex items-center justify-between p-4 md:p-6 border-b border-zinc-700 bg-zinc-800/50">
+                <div className="flex items-center justify-between p-4 md:p-6 border-b border-white/20 bg-black/50">
                   <div>
                     <h1 className="text-lg md:text-2xl font-semibold text-white">
                       {getTerrainTranslation('dueDiligenceGuide.title')}
@@ -325,7 +344,7 @@ export default function DueDiligenceGuide({
                 {/* Mobile Layout - Stack vertically */}
                 <div className="block md:hidden">
                   {/* Due Diligence Sections - Mobile */}
-                  <div className="p-4 space-y-3 bg-zinc-900 border-b border-zinc-700">
+                  <div className="p-4 space-y-3 bg-black border-b border-white/20">
                     {sections.map((section, index) => {
                       const IconComponent = section.icon
                       const isExpanded = expandedSection === index
@@ -333,17 +352,17 @@ export default function DueDiligenceGuide({
                       return (
                         <motion.div
                           key={index}
-                          className="bg-zinc-800/40 border border-zinc-700 rounded-lg overflow-hidden"
+                          className="bg-black/40 border border-white/20 rounded-lg overflow-hidden"
                           initial={{ opacity: 0, y: 10 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: index * 0.05 }}
                         >
                           <button
                             onClick={() => setExpandedSection(isExpanded ? null : index)}
-                            className="w-full flex items-center justify-between p-3 text-left hover:bg-zinc-700/30 transition-colors"
+                            className="w-full flex items-center justify-between p-3 text-left hover:bg-white/5 transition-colors"
                           >
                             <div className="flex items-center gap-3">
-                              <div className={`p-1.5 rounded-lg bg-zinc-700/50 ${section.color}`}>
+                              <div className={`p-1.5 rounded-lg bg-black/50 ${section.color}`}>
                                 <IconComponent className="w-4 h-4" />
                               </div>
                               <h3 className="font-medium text-white text-sm">
@@ -365,7 +384,7 @@ export default function DueDiligenceGuide({
                                 transition={{ duration: 0.2 }}
                                 className="overflow-hidden"
                               >
-                                <div className="p-3 pt-0 space-y-2 border-t border-zinc-700/50">
+                                <div className="p-3 pt-0 space-y-2 border-t border-white/10">
                                   {Array.isArray(section.content) ? 
                                     section.content.map((item, idx) => (
                                       <div key={idx} className="flex items-start gap-2 text-gray-300 text-xs">
@@ -385,7 +404,7 @@ export default function DueDiligenceGuide({
                   </div>
 
                   {/* Contact Form - Mobile */}
-                  <div className="p-4 bg-zinc-800/30">
+                  <div className="p-4 bg-black/30">
                     <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                       <div className="mb-4">
                         <h3 className="text-base font-medium text-white mb-1">
@@ -411,7 +430,7 @@ export default function DueDiligenceGuide({
                             onFocus={() => setFocusedField('fullName')}
                             onBlur={() => setFocusedField(null)}
                             placeholder="Tu nombre completo"
-                            className={`bg-zinc-800 border-zinc-600 focus:border-white transition-all duration-300 pl-4 h-11 text-sm ${
+                            className={`bg-black border-white/20 focus:border-white transition-all duration-300 pl-4 h-11 text-sm ${
                               focusedField === 'fullName' ? 'ring-2 ring-white/20' : ''
                             }`}
                             required
@@ -432,7 +451,7 @@ export default function DueDiligenceGuide({
                             onFocus={() => setFocusedField('email')}
                             onBlur={() => setFocusedField(null)}
                             placeholder="tu@correo.com"
-                            className={`bg-zinc-800 border-zinc-600 focus:border-white transition-all duration-300 pl-4 h-11 text-sm ${
+                            className={`bg-black border-white/20 focus:border-white transition-all duration-300 pl-4 h-11 text-sm ${
                               focusedField === 'email' ? 'ring-2 ring-white/20' : ''
                             }`}
                             required
@@ -453,7 +472,7 @@ export default function DueDiligenceGuide({
                             onFocus={() => setFocusedField('whatsapp')}
                             onBlur={() => setFocusedField(null)}
                             placeholder="+506 8888 8888"
-                            className={`bg-zinc-800 border-zinc-600 focus:border-white transition-all duration-300 pl-4 h-11 text-sm ${
+                            className={`bg-black border-white/20 focus:border-white transition-all duration-300 pl-4 h-11 text-sm ${
                               focusedField === 'whatsapp' ? 'ring-2 ring-white/20' : ''
                             }`}
                           />
@@ -465,7 +484,7 @@ export default function DueDiligenceGuide({
                             <MapPin className="w-4 h-4 mr-2 text-gray-400" />
                             Propiedad seleccionada
                           </Label>
-                          <div className="bg-zinc-800 border border-zinc-600 rounded-lg p-3 text-sm">
+                          <div className="bg-black border border-white/20 rounded-lg p-3 text-sm">
                             <div className="text-white font-medium">{selectedTerrain?.title || 'Consulta general'}</div>
                             <div className="text-gray-400 text-xs mt-1">
                               {selectedTerrain?.location || 'Múltiples ubicaciones disponibles'} • {selectedTerrain?.area || 'Varias opciones'}
@@ -490,7 +509,7 @@ export default function DueDiligenceGuide({
                             onBlur={() => setFocusedField(null)}
                             placeholder="Cuéntanos sobre tu proyecto o dudas específicas..."
                             rows={3}
-                            className={`bg-zinc-800 border-zinc-600 focus:border-white resize-none transition-all duration-300 text-sm ${
+                            className={`bg-black border-white/20 focus:border-white resize-none transition-all duration-300 text-sm ${
                               focusedField === 'message' ? 'ring-2 ring-white/20' : ''
                             }`}
                             required
@@ -522,7 +541,7 @@ export default function DueDiligenceGuide({
 
                       {/* Proposal Section */}
                       {proposalData && (
-                        <div className="bg-zinc-700/30 border border-zinc-600 rounded-lg p-3 mt-4">
+                        <div className="bg-black/50 border border-white/20 rounded-lg p-3 mt-4">
                           <div className="flex items-center gap-2 mb-2">
                             <FileText className="w-4 h-4 text-gray-400" />
                             <h4 className="font-medium text-white text-sm">
@@ -547,7 +566,7 @@ export default function DueDiligenceGuide({
                               <div className="text-green-400 font-medium">{proposalData.legalStatus}</div>
                             </div>
 
-                            <div className="border-t border-zinc-600 pt-2">
+                            <div className="border-t border-white/20 pt-2">
                               <h5 className="text-gray-200 font-medium mb-1 text-xs">Proyección Financiera</h5>
                               <div className="space-y-1">
                                 <div className="flex justify-between">
@@ -579,7 +598,7 @@ export default function DueDiligenceGuide({
                         return (
                           <motion.div
                             key={index}
-                            className="bg-zinc-800/30 border border-zinc-700 rounded-xl overflow-hidden hover:border-zinc-600 transition-all duration-300"
+                            className="bg-black/30 border border-white/20 rounded-xl overflow-hidden hover:border-white/30 transition-all duration-300"
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.05 }}
@@ -589,7 +608,7 @@ export default function DueDiligenceGuide({
                               className="w-full flex items-center justify-between p-4 text-left hover:bg-white/5 transition-colors"
                             >
                               <div className="flex items-center gap-3">
-                                <div className={`p-2 rounded-lg bg-zinc-800/50 ${section.color}`}>
+                                <div className={`p-2 rounded-lg bg-black/50 ${section.color}`}>
                                   <IconComponent className="w-4 h-4" />
                                 </div>
                                 <h3 className="font-medium text-white text-base">
@@ -652,7 +671,7 @@ export default function DueDiligenceGuide({
                   </div>
 
                   {/* Right Side - Contact Form - Desktop */}
-                  <div className="w-80 border-l border-zinc-700 overflow-y-auto max-h-[80vh] bg-zinc-800/20">
+                  <div className="w-80 border-l border-white/20 overflow-y-auto max-h-[80vh] bg-black/20">
                     <form onSubmit={handleSubmit} className="space-y-6 p-6" noValidate>
                       <div>
                         <h3 className="text-lg font-medium text-white mb-2">
@@ -675,7 +694,7 @@ export default function DueDiligenceGuide({
                             value={formData.fullName}
                             onChange={(e) => handleInputChange('fullName', e.target.value)}
                             placeholder="Tu nombre completo"
-                            className="bg-zinc-900 border-zinc-700 focus:border-white transition-all duration-300 pl-4 h-12 text-sm"
+                            className="bg-black border-white/20 focus:border-white transition-all duration-300 pl-4 h-12 text-sm"
                             required
                           />
                         </div>
@@ -691,7 +710,7 @@ export default function DueDiligenceGuide({
                             value={formData.email}
                             onChange={(e) => handleInputChange('email', e.target.value)}
                             placeholder="tu@correo.com"
-                            className="bg-zinc-900 border-zinc-700 focus:border-white transition-all duration-300 pl-4 h-12 text-sm"
+                            className="bg-black border-white/20 focus:border-white transition-all duration-300 pl-4 h-12 text-sm"
                             required
                           />
                         </div>
@@ -707,7 +726,7 @@ export default function DueDiligenceGuide({
                             value={formData.whatsapp}
                             onChange={handleWhatsAppChange}
                             placeholder="+506 8888 8888"
-                            className="bg-zinc-900 border-zinc-700 focus:border-white transition-all duration-300 pl-4 h-12 text-sm"
+                            className="bg-black border-white/20 focus:border-white transition-all duration-300 pl-4 h-12 text-sm"
                           />
                         </div>
 
@@ -716,7 +735,7 @@ export default function DueDiligenceGuide({
                             <MapPin className="w-4 h-4 mr-2 text-gray-400" />
                             Propiedad seleccionada
                           </Label>
-                          <div className="bg-zinc-800/50 border border-white/10 rounded-lg p-3 text-sm">
+                          <div className="bg-black/50 border border-white/10 rounded-lg p-3 text-sm">
                             <div className="text-white font-medium text-sm">{selectedTerrain?.title || 'Consulta general'}</div>
                             <div className="text-gray-400 text-xs mt-1">
                               {selectedTerrain?.location || 'Múltiples ubicaciones disponibles'} • {selectedTerrain?.area || 'Varias opciones'}
@@ -738,7 +757,7 @@ export default function DueDiligenceGuide({
                             onChange={(e) => handleInputChange('message', e.target.value)}
                             placeholder="Cuéntanos sobre tu proyecto o dudas específicas..."
                             rows={3}
-                            className="bg-zinc-900 border-zinc-700 focus:border-white resize-none transition-all duration-300 text-sm"
+                            className="bg-black border-white/20 focus:border-white resize-none transition-all duration-300 text-sm"
                             required
                           />
                         </div>
@@ -766,7 +785,7 @@ export default function DueDiligenceGuide({
                       </div>
 
                       {proposalData && (
-                        <div className="bg-zinc-800/30 border border-white/10 rounded-lg p-4">
+                        <div className="bg-black/30 border border-white/10 rounded-lg p-4">
                           <div className="flex items-center gap-2 mb-3">
                             <FileText className="w-4 h-4 text-gray-400" />
                             <h4 className="font-medium text-white text-sm">

@@ -6,16 +6,15 @@
 @font-face {
   font-family: "MicroExtendFLF-Bold";
   src: url("/fonts/MicroExtendRLF-Bold.woff2") format("woff2");
-  font-weight: 700; /* Explicitly bold */
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-/* Fallback font, if needed for specific elements like longer paragraphs */
 @font-face {
   font-family: "Satoshi";
   src: url("/fonts/Satoshi-Variable.woff2") format("woff2");
-  font-weight: 300 900; /* Variable font, can choose weight */
+  font-weight: 300 900;
   font-style: normal;
   font-display: swap;
 }
@@ -32,61 +31,86 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Mobile-first scroll optimization */
+  scroll-behavior: auto; /* Cambiado de smooth para mejor rendimiento móvil */
   scroll-padding-top: 80px;
+  /* Prevenir bounce scroll en iOS */
+  overscroll-behavior: none;
+  /* Mejor handling de scroll en móviles */
+  -webkit-overflow-scrolling: touch;
+  /* Prevenir zoom accidental en inputs */
+  -webkit-text-size-adjust: 100%;
+  /* Smooth scrolling solo en desktop */
+  @media (min-width: 769px) {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
   background-color: black;
   color: white;
-  font-family: var(--font-primary); /* Use CSS variable for primary font */
-  font-weight: 700; /* Default to bold for the primary font */
+  font-family: var(--font-primary);
+  font-weight: 700;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.02em;
+  /* Mobile touch optimizations */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: none; /* Prevenir bounce */
+  /* Mejor handling de touch events */
+  touch-action: pan-y; /* Solo permite scroll vertical */
+  /* Prevenir selección accidental en móvil */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  /* Re-habilitar selección para elementos específicos */
+  & input, textarea, [contenteditable] {
+    -webkit-user-select: auto;
+    -moz-user-select: auto;
+    user-select: auto;
+  }
 }
 
-/* Utility class for primary font (MicroExtendFLF-Bold) */
+/* Utility class for primary font */
 .font-micro {
   font-family: var(--font-primary);
   font-weight: 700;
-  letter-spacing: -0.02em; /* Default for MicroExtend */
+  letter-spacing: -0.02em;
 }
 
-/* Utility class for secondary font (Satoshi), e.g., for paragraphs */
+/* Utility class for secondary font */
 .font-satoshi {
-  font-family: var(--font-secondary);
-  font-weight: 400; /* Normal weight for Satoshi */
-  letter-spacing: normal; /* Reset letter spacing */
-  line-height: 1.6; /* Better readability for paragraph text */
-}
-
-/* Apply Satoshi to common text elements if desired, or use .font-satoshi class */
-p,
-li,
-blockquote {
   font-family: var(--font-secondary);
   font-weight: 400;
   letter-spacing: normal;
+  line-height: 1.6;
 }
 
-/* Headings will use the primary font by default due to body inheritance */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.section-title,
-.hero-title {
+/* Text elements */
+p, li, blockquote {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+  letter-spacing: normal;
+  /* Re-habilitar selección para texto */
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6, .section-title, .hero-title {
   font-family: var(--font-primary);
   font-weight: 700;
   text-transform: uppercase;
+  /* Re-habilitar selección para headings */
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
 }
 
 .hero-title {
   letter-spacing: -0.03em;
-  line-height: 0.95; /* Slightly adjusted for better appearance */
+  line-height: 0.95;
 }
 
 .section-title {
@@ -98,7 +122,7 @@ h6,
   clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%);
 }
 
-/* Botones Angular */
+/* Botones Angular - Optimizados para touch */
 .angular-button {
   position: relative;
   padding: 1rem 2rem;
@@ -108,15 +132,21 @@ h6,
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.875rem;
-  font-family: var(--font-primary); /* Ensure buttons use primary font */
+  font-family: var(--font-primary);
   font-weight: 700;
   display: inline-block;
   overflow: hidden;
   transition: all 0.3s ease;
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%); /* Adjusted from 15px to 8px */
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 100%, 8px 100%);
   border: 2px solid white;
   min-width: 150px;
   text-align: center;
+  /* Touch optimizations */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation; /* Elimina delay de 300ms */
+  cursor: pointer;
+  /* Mejor área de toque en móvil */
+  min-height: 44px; /* Apple HIG recommendation */
 }
 
 .angular-button span {
@@ -133,15 +163,25 @@ h6,
   background: white;
   transition: all 0.3s ease;
   z-index: 1;
+  /* Optimización GPU */
+  will-change: transform;
+  transform: translateZ(0);
 }
 
-.angular-button:hover {
+.angular-button:hover, .angular-button:focus {
   color: black;
   transform: translateY(-2px);
 }
 
-.angular-button:hover .angular-button-overlay {
+.angular-button:hover .angular-button-overlay,
+.angular-button:focus .angular-button-overlay {
   left: 0;
+}
+
+/* Estados activos para touch */
+.angular-button:active {
+  transform: translateY(0);
+  transition-duration: 0.1s;
 }
 
 .ghost-button {
@@ -159,6 +199,11 @@ h6,
   text-decoration: none;
   color: white;
   background: transparent;
+  /* Touch optimizations */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  cursor: pointer;
+  min-height: 44px;
 }
 
 .ghost-button::before {
@@ -171,16 +216,25 @@ h6,
   background-color: white;
   transition: all 0.3s ease;
   z-index: -1;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
-.ghost-button:hover {
+.ghost-button:hover, .ghost-button:focus {
   color: black;
 }
 
-.ghost-button:hover::before {
+.ghost-button:hover::before,
+.ghost-button:focus::before {
   width: 100%;
 }
 
+.ghost-button:active {
+  transform: scale(0.98);
+  transition-duration: 0.1s;
+}
+
+/* Service cards con mejor touch handling */
 .service-card {
   background-color: #18181b;
   padding: 1.5rem;
@@ -189,38 +243,93 @@ h6,
   transition: all 0.3s ease;
   border: 1px solid transparent;
   clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 100%, 15px 100%);
+  /* Touch optimizations */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
-.service-card:hover {
+.service-card:hover, .service-card:focus-within {
   transform: translateY(-5px);
   border-color: rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
+.service-card:active {
+  transform: translateY(-2px);
+  transition-duration: 0.1s;
+}
+
+/* Scroll containers optimizations */
+.scroll-container {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  scroll-behavior: auto; /* No smooth en contenedores */
+}
+
+/* Modal y overlay optimizations */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  /* Prevenir scroll del body */
+  overscroll-behavior: none;
+  touch-action: none;
+  /* GPU acceleration */
+  will-change: opacity;
+  transform: translateZ(0);
+}
+
+.modal-content {
+  /* Scroll interno del modal */
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  /* GPU acceleration */
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Animations optimizations */
 .section-reveal {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease;
+  /* GPU acceleration */
+  will-change: transform, opacity;
+  transform: translateZ(0) translateY(20px);
 }
 
 .section-reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateZ(0) translateY(0);
 }
 
-/* Mobile */
+/* Mobile specific optimizations */
 @media (max-width: 768px) {
   body {
     letter-spacing: -0.015em;
+    /* Más agresivo en móvil */
+    overscroll-behavior: none;
+    position: relative; /* Ayuda con algunos bugs de scroll */
   }
-  .angular-button {
+  
+  .angular-button, .ghost-button {
     padding: 0.875rem 1.5rem;
     font-size: 0.8rem;
     min-width: 140px;
+    min-height: 48px; /* Aumentar área de toque */
+    /* Mejor feedback táctil */
+    transition: transform 0.1s ease, background-color 0.2s ease;
   }
 
   .service-card {
     padding: 1.25rem;
+    /* Simplificar transiciones en móvil */
+    transition: transform 0.2s ease, border-color 0.2s ease;
   }
 
   .hero-title {
@@ -228,11 +337,32 @@ h6,
   }
 
   .clip-path-angular {
-    clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 100%, 4px 100%); /* Adjusted from 6px to 4px */
+    clip-path: polygon(0 0, calc(100% - 4px) 0, 100% 100%, 4px 100%);
+  }
+
+  /* Optimizar animaciones para móvil */
+  .section-reveal {
+    transition: all 0.4s ease; /* Más rápido en móvil */
+  }
+
+  /* Input zoom prevention */
+  input, select, textarea {
+    font-size: 16px; /* Prevenir zoom en iOS */
   }
 }
 
-/* Reducir animaciones si se prefiere */
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .angular-button, .ghost-button {
+    min-height: 44px;
+  }
+}
+
+/* Reduce motion preferences */
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -242,5 +372,28 @@ h6,
 
   html {
     scroll-behavior: auto;
+  }
+  
+  .section-reveal {
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Dark mode optimizations for better contrast */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000000;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .angular-button, .ghost-button {
+    border-width: 3px;
+  }
+  
+  .service-card:hover {
+    border-color: rgba(255, 255, 255, 0.5);
   }
 }
